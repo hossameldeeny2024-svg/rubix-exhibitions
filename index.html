@@ -618,27 +618,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Main Featured Event Video Card -->
-                <div onclick="openRubixShowcaseModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-cyan-400/50 transition-all">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://img.youtube.com/vi/JDf1A4div6c/hqdefault.jpg" alt="Rubix Event Showcase Video" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
-                        <span id="rubix-badge-txt" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 backdrop-blur-md">Rubix Official Showcase</span>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
-                            <span id="rubix-hover-txt" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
-                                <i class="fa-solid fa-play"></i> Watch Featured Video
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 id="rubix-card-title" class="text-lg font-bold text-white mb-2">Live Production & Event Execution</h3>
-                        <p id="rubix-card-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Featured live coverage showing our stage setups, sound rigs, and event production in action.</p>
-                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
-                            <span id="rubix-card-tag">Featured Showreel</span>
-                            <span id="rubix-open-txt" class="text-cyan-400"><i class="fa-solid fa-circle-play"></i> Watch Full Video</span>
-                        </div>
-                    </div>
-                </div>
                 
                 <!-- Faculty of Agriculture Concert Card -->
                 <div onclick="openAgriModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-emerald-400/50 transition-all">
@@ -976,20 +955,7 @@
             </div>
         </div>
     </section>
-<!-- Rubix Official Showcase Modal -->
-    <div id="rubix-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
-        <div class="glass-card w-full max-w-4xl p-6 sm:p-8 rounded-3xl border border-brand-border relative my-8">
-            <button onclick="closeRubixShowcaseModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl z-10 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-            <div class="mb-6">
-                <span id="rubix-modal-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">Official Event Showcase</span>
-                <h2 id="rubix-modal-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Live Production & Event Execution</h2>
-                <p id="rubix-modal-desc" class="text-xs text-gray-400 mt-1">Watch our official live event video and stage production execution.</p>
-            </div>
-            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-brand-border bg-black shadow-2xl relative">
-                <iframe src="https://www.youtube.com/embed/JDf1A4div6c?autoplay=1&mute=0&controls=1" title="Rubix Official Showcase Video" class="w-full h-full absolute inset-0 border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
+
     <!-- Footer -->
     <footer class="bg-brand-dark border-t border-brand-border py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
@@ -1605,17 +1571,7 @@
                 document.getElementById('opt-3').innerText = 'Concert, Live Music & Pro DJ';
                 document.getElementById('opt-4').innerText = 'Café / Lounge Event Setup';
                 document.getElementById('footer-copy').innerText = '© 2026 Rubix Exhibitions & Events. All rights reserved. KSA & Egypt.';
-    function openRubixShowcaseModal() {
-            const modal = document.getElementById('rubix-modal');
-            modal.classList.remove('hidden'); 
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeRubixShowcaseModal() {
-            const modal = document.getElementById('rubix-modal');
-            modal.classList.remove('flex'); 
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            }
         }
     </script>
 </body>

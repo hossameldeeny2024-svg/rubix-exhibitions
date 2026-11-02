@@ -618,6 +618,27 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Main Featured Event Video Card -->
+                <div onclick="openRubixShowcaseModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-cyan-400/50 transition-all">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://img.youtube.com/vi/JDf1A4div6c/hqdefault.jpg" alt="Rubix Event Showcase Video" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
+                        <span id="rubix-badge-txt" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 backdrop-blur-md">Rubix Official Showcase</span>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
+                            <span id="rubix-hover-txt" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
+                                <i class="fa-solid fa-play"></i> Watch Featured Video
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 id="rubix-card-title" class="text-lg font-bold text-white mb-2">Live Production & Event Execution</h3>
+                        <p id="rubix-card-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Featured live coverage showing our stage setups, sound rigs, and event production in action.</p>
+                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
+                            <span id="rubix-card-tag">Featured Showreel</span>
+                            <span id="rubix-open-txt" class="text-cyan-400"><i class="fa-solid fa-circle-play"></i> Watch Full Video</span>
+                        </div>
+                    </div>
+                </div>
                 
                 <!-- Faculty of Agriculture Concert Card -->
                 <div onclick="openAgriModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-emerald-400/50 transition-all">

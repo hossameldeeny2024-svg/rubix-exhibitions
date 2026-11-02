@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="site-title">Rubix Exhibitions | Turnkey Exhibition & Event Solutions</title>
     <!-- Site Favicon / Company Logo -->
-    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1KKjnIEhcRHiq9WQJb7NB4PQ0ciFVx-AR">
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1KKjnIEhcRHiq9WQJb7NB4PQ0ciFVx-AR=s200">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -104,14 +104,6 @@
             pointer-events: none;
             animation: fireworkParticle 1.5s ease-out forwards;
         }
-        .config-check:checked + div {
-            border-color: #06B6D4;
-            background-color: rgba(6, 182, 212, 0.1);
-        }
-        .config-radio:checked + div {
-            border-color: #06B6D4;
-            background-color: rgba(6, 182, 212, 0.15);
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-black">
@@ -146,24 +138,6 @@
                     <i class="fa-solid fa-envelope text-base"></i>
                     <span id="nav-cta-text">Email Us</span>
                 </a>
-                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-brand-card border border-brand-border text-gray-300 hover:text-white text-xl" aria-label="Mobile Menu">
-                    <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-card border-b border-brand-border px-6 py-6 space-y-4 shadow-2xl backdrop-blur-xl">
-            <a href="#about" onclick="toggleMobileMenu()" id="m-nav-about" class="block text-base font-medium text-gray-200 hover:text-cyan-400">About Us</a>
-            <a href="#services" onclick="toggleMobileMenu()" id="m-nav-services" class="block text-base font-medium text-gray-200 hover:text-cyan-400">Services</a>
-            <a href="#portfolio" onclick="toggleMobileMenu()" id="m-nav-portfolio" class="block text-base font-medium text-gray-200 hover:text-cyan-400">Portfolio</a>
-            <a href="#configurator" onclick="toggleMobileMenu()" id="m-nav-builder" class="block text-base font-bold text-cyan-400">Project Builder</a>
-            <a href="#process" onclick="toggleMobileMenu()" id="m-nav-process" class="block text-base font-medium text-gray-200 hover:text-cyan-400">Process</a>
-            <a href="#contact" onclick="toggleMobileMenu()" id="m-nav-contact" class="block text-base font-medium text-gray-200 hover:text-cyan-400">Contact</a>
-            <div class="pt-4 border-t border-brand-border">
-                <a href="mailto:rubixexhibitions@gmail.com" id="m-nav-cta" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span id="m-nav-cta-text">Email Us</span>
-                </a>
             </div>
         </div>
     </header>
@@ -175,19 +149,6 @@
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
             </iframe>
             <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/85 via-brand-dark/75 to-brand-dark z-10"></div>
-        </div>
-        
-        <div id="fireworks-container" class="absolute inset-0 pointer-events-none z-20 overflow-hidden"></div>
-
-        <div class="w-full bg-cyan-500/10 border-y border-cyan-500/20 py-2.5 overflow-hidden mb-8 sm:mb-12 backdrop-blur-md relative z-30">
-            <div class="animate-marquee whitespace-nowrap flex items-center gap-12 text-[11px] sm:text-xs font-bold tracking-widest uppercase text-cyan-300">
-                <span class="flex items-center gap-2"><i class="fa-solid fa-fire text-amber-400"></i> Live Stage Production & Concerts</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-music text-cyan-400"></i> Professional DJ & Acoustic Sound Systems</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-star text-amber-400"></i> Turnkey Exhibition Stands & Grand Weddings</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-fire text-amber-400"></i> Live Stage Production & Concerts</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-music text-cyan-400"></i> Professional DJ & Acoustic Sound Systems</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-star text-amber-400"></i> Turnkey Exhibition Stands & Grand Weddings</span>
-            </div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
@@ -204,169 +165,15 @@
                 <p id="hero-desc" class="text-sm sm:text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-8 sm:mb-12 max-w-3xl mx-auto">
                     Turnkey Exhibition Stands, Grand Weddings, Concerts & Live Music Production equipped with professional DJ & sound systems across KSA & Egypt.
                 </p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
-                    <a href="#configurator" id="hero-cta-btn" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm sm:text-base transition-all shadow-xl flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-sliders text-lg sm:text-xl"></i>
-                        <span id="hero-cta-text">Build Your Project Now</span>
-                    </a>
-                    <a href="#portfolio" id="hero-secondary-btn" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-xl glass-card hover:bg-brand-card/90 text-white border border-brand-border font-semibold text-sm sm:text-base transition-all flex items-center justify-center gap-2">
-                        <span id="hero-secondary-text">Explore Our Portfolio</span>
-                        <i class="fa-solid fa-arrow-down text-sm"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
-
-    <!-- PORTFOLIO SECTION -->
-    <section id="portfolio" class="py-16 sm:py-20 md:py-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <div id="port-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold uppercase tracking-wider mb-4">
-                        Our Portfolio & Execution Workflow
-                    </div>
-                    <h2 id="port-title" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-                        From 3D CAD Blueprints to On-Site Stage Construction & Concerts
-                    </h2>
-                </div>
-                <div id="port-subtitle" class="mt-4 md:mt-0 text-sm text-gray-400">
-                    Real technical view: 3D architectural renders, CAD layouts, concert productions, and stage builds.
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Main Featured Event Video Card -->
-                <div onclick="openRubixShowcaseModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-cyan-400/50 transition-all">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://img.youtube.com/vi/JDf1A4div6c/hqdefault.jpg" alt="Rubix Event Showcase Video" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
-                        <span id="rubix-badge-txt" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 backdrop-blur-md">Rubix Official Showcase</span>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
-                            <span id="rubix-hover-txt" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
-                                <i class="fa-solid fa-play"></i> Watch Featured Video
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 id="rubix-card-title" class="text-lg font-bold text-white mb-2">Live Production & Event Execution</h3>
-                        <p id="rubix-card-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Featured live coverage showing our stage setups, sound rigs, and event production in action.</p>
-                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
-                            <span id="rubix-card-tag">Featured Showreel</span>
-                            <span id="rubix-open-txt" class="text-cyan-400"><i class="fa-solid fa-circle-play"></i> Watch Full Video</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Faculty of Agriculture Concert Card -->
-                <div onclick="openAgriModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-emerald-400/50 transition-all">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://img.youtube.com/vi/-32SF4lNwhc/hqdefault.jpg" alt="Faculty of Agriculture Concert" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
-                        <span id="agri-badge-txt" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 backdrop-blur-md">Faculty Concert</span>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
-                            <span id="agri-hover-txt" class="px-4 py-2 rounded-xl bg-emerald-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
-                                <i class="fa-solid fa-play"></i> Watch Concert Video
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 id="agri-card-title" class="text-lg font-bold text-white mb-2">Faculty of Agriculture Celebration</h3>
-                        <p id="agri-card-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Complete stage setup, sound engineering, and live concert production for Faculty of Agriculture party.</p>
-                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
-                            <span id="agri-card-tag">Concerts & Parties</span>
-                            <span id="agri-open-txt" class="text-emerald-400"><i class="fa-solid fa-circle-play"></i> Watch Video</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Concert Stage 3D Architectural Blueprint -->
-                <div onclick="openBlueprintModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-cyan-400/50 transition-all">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/d/1SOt89cTO5MGszMLFDgctgiqxjUZIue7Q" alt="3D Architectural Stage Render" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
-                        <span id="proj-1-tag" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 backdrop-blur-md">3D Concept & Render</span>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
-                            <span id="proj-1-hover" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
-                                <i class="fa-solid fa-magnifying-glass-plus"></i> View Blueprint Gallery
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 id="proj-1-title" class="text-lg font-bold text-white mb-2">Concert Stage 3D Blueprint</h3>
-                        <p id="proj-1-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Initial 3D visual projection featuring curved LED backdrops, truss hanging points, and precise spatial CAD layout.</p>
-                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
-                            <span id="proj-1-type">Phase 1: Design & 3D</span>
-                            <span id="proj-1-status" class="text-cyan-400"><i class="fa-solid fa-cube"></i> Approved 3D</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stage Rigging & Construction Phase -->
-                <div onclick="openRiggingModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-amber-400/50 transition-all">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/d/1YqvJ93kBM1ojMh3K2q_8UgHpu3XeJhPG" alt="Stage Rigging and Construction" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
-                        <span id="proj-2-tag" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 backdrop-blur-md">On-Site Execution</span>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
-                            <span id="proj-2-hover" class="px-4 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
-                                <i class="fa-solid fa-images"></i> View Rigging Gallery
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 id="proj-2-title" class="text-lg font-bold text-white mb-2">Stage Rigging & Construction</h3>
-                        <p id="proj-2-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Live on-site execution showing heavy-duty steel truss assembly, lighting grid suspension, and safety checks.</p>
-                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
-                            <span id="proj-2-type">Phase 2: Rigging</span>
-                            <span id="proj-2-status" class="text-amber-400"><i class="fa-solid fa-hammer"></i> Open Gallery</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Rubix Official Showcase Modal -->
-    <div id="rubix-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
-        <div class="glass-card w-full max-w-4xl p-6 sm:p-8 rounded-3xl border border-brand-border relative my-8">
-            <button onclick="closeRubixShowcaseModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl z-10 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-            <div class="mb-6">
-                <span id="rubix-modal-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">Official Event Showcase</span>
-                <h2 id="rubix-modal-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Live Production & Event Execution</h2>
-                <p id="rubix-modal-desc" class="text-xs text-gray-400 mt-1">Watch our official live event video and stage production execution.</p>
-            </div>
-            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-brand-border bg-black shadow-2xl relative">
-                <iframe src="https://www.youtube.com/embed/JDf1A4div6c?autoplay=1&mute=0&controls=1" title="Rubix Official Showcase Video" class="w-full h-full absolute inset-0 border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-brand-dark border-t border-brand-border py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <div>
-                <img src="https://lh3.googleusercontent.com/d/1KKjnIEhcRHiq9WQJb7NB4PQ0ciFVx-AR" alt="Rubix Exhibitions Logo" class="h-12 w-auto object-contain mx-auto md:mx-0">
-                <p id="footer-copy" class="text-xs text-gray-400 mt-2">© 2026 Rubix Exhibitions & Events. All rights reserved. KSA & Egypt.</p>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p id="footer-copy" class="text-xs text-gray-400">© 2026 Rubix Exhibitions & Events. All rights reserved. KSA & Egypt.</p>
         </div>
     </footer>
-
-    <!-- Script Section -->
-    <script>
-        function openRubixShowcaseModal() {
-            const modal = document.getElementById('rubix-modal');
-            modal.classList.remove('hidden'); modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeRubixShowcaseModal() {
-            const modal = document.getElementById('rubix-modal');
-            modal.classList.remove('flex'); modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-    </script>
 </body>
 </html>

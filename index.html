@@ -976,7 +976,20 @@
             </div>
         </div>
     </section>
-
+<!-- Rubix Official Showcase Modal -->
+    <div id="rubix-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card w-full max-w-4xl p-6 sm:p-8 rounded-3xl border border-brand-border relative my-8">
+            <button onclick="closeRubixShowcaseModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl z-10 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mb-6">
+                <span id="rubix-modal-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">Official Event Showcase</span>
+                <h2 id="rubix-modal-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Live Production & Event Execution</h2>
+                <p id="rubix-modal-desc" class="text-xs text-gray-400 mt-1">Watch our official live event video and stage production execution.</p>
+            </div>
+            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-brand-border bg-black shadow-2xl relative">
+                <iframe src="https://www.youtube.com/embed/JDf1A4div6c?autoplay=1&mute=0&controls=1" title="Rubix Official Showcase Video" class="w-full h-full absolute inset-0 border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
     <!-- Footer -->
     <footer class="bg-brand-dark border-t border-brand-border py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
@@ -1592,6 +1605,16 @@
                 document.getElementById('opt-3').innerText = 'Concert, Live Music & Pro DJ';
                 document.getElementById('opt-4').innerText = 'Café / Lounge Event Setup';
                 document.getElementById('footer-copy').innerText = '© 2026 Rubix Exhibitions & Events. All rights reserved. KSA & Egypt.';
+                function openRubixShowcaseModal() {
+            const modal = document.getElementById('rubix-modal');
+            modal.classList.remove('hidden'); modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeRubixShowcaseModal() {
+            const modal = document.getElementById('rubix-modal');
+            modal.classList.remove('flex'); modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
             }
         }
     </script>

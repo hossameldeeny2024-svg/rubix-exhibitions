@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-title">Rubix Exhibitions | Turnkey Exhibition & Event Solutions</title>
+    <!-- Site Favicon / Company Logo -->
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1KKjnIEhcRHiq9WQJb7NB4PQ0ciFVx-AR">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#080C14',
+                            card: '#0F172A',
+                            border: '#1E293B',
+                            accent: '#06B6D4',
+                            gold: '#F59E0B',
+                            hover: '#0891B2'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Cairo', 'sans-serif'],
+                        arabic: ['Cairo', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #080C14;
+            color: #F8FAFC;
+            font-family: 'Inter', 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+        [dir="rtl"] body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38BDF8 0%, #06B6D4 50%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-video-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .hero-video-wrap iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 160vw;
+            height: 160vh;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes fireworkParticle {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+        .firework-spark {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fireworkParticle 1.5s ease-out forwards;
+        }
+        .config-check:checked + div {
+            border-color: #06B6D4;
+            background-color: rgba(6, 182, 212, 0.1);
+        }
+        .config-radio:checked + div {
+            border-color: #06B6D4;
+            background-color: rgba(6, 182, 212, 0.15);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-black">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/9660564532758?text=Hello%20Rubix%20Exhibitions%2C%20I%20would%20like%20to%20inquire%20about%20a%20turnkey%20project." id="floating-whatsapp" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-all duration-300 group" aria-label="WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span id="float-wa-tooltip" class="absolute right-16 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity border border-gray-700 shadow-lg pointer-events-none">Chat with Us</span>
+    </a>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <a href="#" class="flex items-center py-2">
+                <img src="https://lh3.googleusercontent.com/d/1KKjnIEhcRHiq9WQJb7NB4PQ0ciFVx-AR" alt="Rubix Exhibitions Logo" class="h-14 sm:h-16 md:h-20 w-auto object-contain">
+            </a>
+
+            <nav class="hidden md:flex items-center gap-7">
+                <a href="#about" id="nav-about" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors">About Us</a>
+                <a href="#services" id="nav-services" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors">Services</a>
+                <a href="#portfolio" id="nav-portfolio" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors">Portfolio</a>
+                <a href="#configurator" id="nav-builder" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-sliders text-xs"></i> Project Builder</a>
+                <a href="#process" id="nav-process" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors">Process</a>
+                <a href="#contact" id="nav-contact" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="lang-toggle-btn" onclick="toggleLanguage()" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-card hover:bg-brand-border text-xs font-bold text-cyan-400 border border-brand-accent/30 flex items-center gap-1.5 sm:gap-2 transition-all shadow-md">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="lang-text">العربية</span>
+                </button>
+                <a href="mailto:rubixexhibitions@gmail.com" id="nav-cta" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-semibold text-xs sm:text-sm transition-all shadow-lg">
+                    <i class="fa-solid fa-envelope text-base"></i>
+                    <span id="nav-cta-text">Email Us</span>
+                </a>
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-brand-card border border-brand-border text-gray-300 hover:text-white text-xl" aria-label="Mobile Menu">
+                    <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-card border-b border-brand-border px-6 py-6 space-y-4 shadow-2xl backdrop-blur-xl">
+            <a href="#about" onclick="toggleMobileMenu()" id="m-nav-about" class="block text-base font-medium text-gray-200 hover:text-cyan-400">About Us</a>
+            <a href="#services" onclick="toggleMobileMenu()" id="m-nav-services" class="block text-base font-medium text-gray-200 hover:text-cyan-400">Services</a>
+            <a href="#portfolio" onclick="toggleMobileMenu()" id="m-nav-portfolio" class="block text-base font-medium text-gray-200 hover:text-cyan-400">Portfolio</a>
+            <a href="#configurator" onclick="toggleMobileMenu()" id="m-nav-builder" class="block text-base font-bold text-cyan-400">Project Builder</a>
+            <a href="#process" onclick="toggleMobileMenu()" id="m-nav-process" class="block text-base font-medium text-gray-200 hover:text-cyan-400">Process</a>
+            <a href="#contact" onclick="toggleMobileMenu()" id="m-nav-contact" class="block text-base font-medium text-gray-200 hover:text-cyan-400">Contact</a>
+            <div class="pt-4 border-t border-brand-border">
+                <a href="mailto:rubixexhibitions@gmail.com" id="m-nav-cta" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span id="m-nav-cta-text">Email Us</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-16 pb-24 sm:pt-20 sm:pb-28 md:pt-28 md:pb-36 border-b border-brand-border/60 overflow-hidden">
+        <div class="hero-video-wrap">
+            <iframe src="https://www.youtube.com/embed/JDf1A4div6c?autoplay=1&mute=1&loop=1&playlist=JDf1A4div6c&controls=0&showinfo=0&autohide=1&modestbranding=1&enablejsapi=1" 
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+            </iframe>
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/85 via-brand-dark/75 to-brand-dark z-10"></div>
+        </div>
+        
+        <div id="fireworks-container" class="absolute inset-0 pointer-events-none z-20 overflow-hidden"></div>
+
+        <div class="w-full bg-cyan-500/10 border-y border-cyan-500/20 py-2.5 overflow-hidden mb-8 sm:mb-12 backdrop-blur-md relative z-30">
+            <div class="animate-marquee whitespace-nowrap flex items-center gap-12 text-[11px] sm:text-xs font-bold tracking-widest uppercase text-cyan-300">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-fire text-amber-400"></i> Live Stage Production & Concerts</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-music text-cyan-400"></i> Professional DJ & Acoustic Sound Systems</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-star text-amber-400"></i> Turnkey Exhibition Stands & Grand Weddings</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-fire text-amber-400"></i> Live Stage Production & Concerts</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-music text-cyan-400"></i> Professional DJ & Acoustic Sound Systems</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-star text-amber-400"></i> Turnkey Exhibition Stands & Grand Weddings</span>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-brand-card/90 border border-brand-accent/30 mb-6 sm:mb-8 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    <span id="hero-badge" class="text-[10px] sm:text-xs font-semibold text-cyan-300 uppercase tracking-widest">Exhibitions, Weddings, Concerts & Turnkey Production</span>
+                </div>
+
+                <h1 id="hero-title" class="text-2xl sm:text-5xl lg:text-7xl font-black text-white tracking-tight leading-tight mb-6 sm:mb-8">
+                    From 3D Design to Execution <span class="gradient-text">& Live Stage Production</span>
+                </h1>
+
+                <p id="hero-desc" class="text-sm sm:text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-8 sm:mb-12 max-w-3xl mx-auto">
+                    Turnkey Exhibition Stands, Grand Weddings, Concerts & Live Music Production equipped with professional DJ & sound systems across KSA & Egypt.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+                    <a href="#configurator" id="hero-cta-btn" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm sm:text-base transition-all shadow-xl flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-sliders text-lg sm:text-xl"></i>
+                        <span id="hero-cta-text">Build Your Project Now</span>
+                    </a>
+                    <a href="#portfolio" id="hero-secondary-btn" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-xl glass-card hover:bg-brand-card/90 text-white border border-brand-border font-semibold text-sm sm:text-base transition-all flex items-center justify-center gap-2">
+                        <span id="hero-secondary-text">Explore Our Portfolio</span>
+                        <i class="fa-solid fa-arrow-down text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 sm:py-20 md:py-28 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div id="about-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-accent/10 text-brand-accent border border-brand-accent/20 text-xs font-semibold uppercase tracking-wider mb-4">
+                        Creative Spatial & Event Engineering
+                    </div>
+                    <h2 id="about-title" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                        Complete Turnkey Solutions: Design, Build & Sound
+                    </h2>
+                    <p id="about-p1" class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                        At <strong class="text-white">Rubix Exhibitions</strong>, our workflow starts from creative 3D design and engineering up to full on-site implementation. We don't just build exhibition booths; we curate unforgettable corporate events, luxury weddings, and live music concerts.
+                    </p>
+                    <p id="about-p2" class="text-gray-300 text-sm sm:text-base leading-relaxed mb-8">
+                        Equipped with in-house professional DJ setups, high-end acoustic systems, stage lighting rigs, and meticulous carpentry, we guarantee precise execution from concept to final showtime.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-3 sm:gap-4">
+                        <div class="p-3 sm:p-4 rounded-xl glass-card border border-brand-border text-center">
+                            <div class="text-brand-accent font-extrabold text-xl sm:text-3xl mb-1">100%</div>
+                            <div id="stat-1-title" class="text-[10px] sm:text-[11px] text-gray-400 font-medium">Turnkey Execution</div>
+                        </div>
+                        <div class="p-3 sm:p-4 rounded-xl glass-card border border-brand-border text-center">
+                            <div class="text-brand-gold font-extrabold text-xl sm:text-3xl mb-1">DJ & AV</div>
+                            <div id="stat-2-title" class="text-[10px] sm:text-[11px] text-gray-400 font-medium">Sound & Lighting</div>
+                        </div>
+                        <div class="p-3 sm:p-4 rounded-xl glass-card border border-brand-border text-center">
+                            <div id="stat-3-val" class="text-emerald-400 font-extrabold text-xl sm:text-3xl mb-1">Live</div>
+                            <div id="stat-3-title" class="text-[10px] sm:text-[11px] text-gray-400 font-medium">Concerts & Weddings</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="rounded-2xl overflow-hidden border border-brand-border shadow-2xl relative group">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop" alt="3D Architectural CAD Design" class="w-full h-[320px] sm:h-[450px] object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-3 sm:p-4 rounded-xl glass-card">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-semibold text-gray-200">
+                                <span id="img-overlay-left" class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Precise 3D Architectural CAD Planning</span>
+                                <span id="img-overlay-right" class="text-brand-accent">KSA & Egypt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Founders Section -->
+    <section id="founder" class="py-16 sm:py-20 bg-brand-dark/80 relative border-b border-brand-border/60 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Hossam ElDeen Eltanahy Card -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-brand-border/80 shadow-2xl relative flex flex-col justify-between">
+                    <div class="absolute -top-24 -left-24 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="space-y-6 relative z-10">
+                        <div class="rounded-2xl overflow-hidden border border-cyan-500/30 shadow-2xl relative group">
+                            <img src="https://lh3.googleusercontent.com/d/1wYDrqxqsTJeqILu3w5HM8ELI2TAsDFrL" alt="Hossam ElDeen Eltanahy - Founder & Creative Lead" class="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4 p-3 rounded-xl glass-card backdrop-blur-md border border-white/10 text-center">
+                                <span id="founder-role-badge" class="text-xs font-bold text-cyan-400 tracking-wider uppercase">Founder & Creative Lead</span>
+                            </div>
+                        </div>
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-widest">
+                            <i class="fa-solid fa-crown text-amber-400"></i> <span id="founder-badge-txt">Leadership & Creative Vision</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">Hossam ElDeen Eltanahy</h2>
+                        <p id="founder-p1" class="text-gray-300 text-sm sm:text-base font-light leading-relaxed">
+                            "True leadership in major events isn’t just about management; it’s about commanding the entire atmosphere from concept to execution. At <strong class="text-white">Rubix Exhibitions</strong>, we don't just stage events—we orchestrate immersive experiences that captivate audiences and redefine industry standards.
+                        </p>
+                        <p id="founder-p2" class="text-gray-300 text-sm sm:text-base font-light leading-relaxed">
+                            From massive concert productions and grand stage engineering to flawless turnkey realization, we lead with absolute precision to ensure every brand we touch stands at the pinnacle of impact and excellence."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/60 relative z-10">
+                        <a href="#contact" id="founder-cta-btn" class="w-full py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-lg flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Get In Touch
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ali Bassam Card -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-brand-border/80 shadow-2xl relative flex flex-col justify-between">
+                    <div class="absolute -top-24 -right-24 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="space-y-6 relative z-10">
+                        <div class="rounded-2xl overflow-hidden border border-emerald-500/30 shadow-2xl relative group">
+                            <img src="https://lh3.googleusercontent.com/d/1mUhOiMKicbyLXV4meJk17lfEyqltPvq-" alt="Ali Bassam - Head of Field Operations & Production - Egypt" class="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4 p-3 rounded-xl glass-card backdrop-blur-md border border-white/10 text-center">
+                                <span id="ali-role-badge" class="text-xs font-bold text-emerald-400 tracking-wider uppercase">Head of Field Operations & Production - Egypt</span>
+                            </div>
+                        </div>
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold uppercase tracking-widest">
+                            <i class="fa-solid fa-shield-halved text-emerald-400"></i> <span id="ali-badge-txt">Field Operations & Execution</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">Ali Bassam</h2>
+                        <p id="ali-p1" class="text-gray-300 text-sm sm:text-base font-light leading-relaxed">
+                            "Excellence on paper means nothing without ruthless execution on the ground. Leading our operations across Egypt, Ali Bassam ensures that every structural design, stage build, and logistical requirement is translated into flawless reality with absolute precision."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/60 relative z-10">
+                        <a href="#contact" id="ali-cta-btn" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-lg flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Get In Touch
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES SECTION -->
+    <section id="services" class="py-16 sm:py-20 md:py-28 bg-brand-card/50 border-y border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div id="services-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-semibold uppercase tracking-wider mb-4">
+                    Full Spectrum Services
+                </div>
+                <h2 id="services-title" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    From Concept to Concerts & Events
+                </h2>
+                <p id="services-subtitle" class="text-gray-400 text-sm sm:text-base">
+                    Comprehensive design, fabrication, and live audio-visual production tailored for exhibitions, weddings, and music events.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-brand-border hover:border-cyan-500/50 transition-all hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6"><i class="fa-solid fa-cube"></i></div>
+                        <h3 id="srv-1-title" class="text-xl font-bold text-white mb-3">Exhibition Stands & 3D Design</h3>
+                        <p id="srv-1-desc" class="text-gray-400 text-sm leading-relaxed mb-6">Bespoke 3D booths, CAD technical plans, and turnkey exhibition stands built to maximize brand impact on the showroom floor.</p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-brand-border pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> <span id="srv-1-feat-1">3D Renders & Shop Drawings</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> <span id="srv-1-feat-2">Turnkey Booth Fabrication</span></li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-brand-border hover:border-amber-500/50 transition-all hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-6"><i class="fa-solid fa-ring"></i></div>
+                        <h3 id="srv-2-title" class="text-xl font-bold text-white mb-3">Weddings & Engagement Events</h3>
+                        <p id="srv-2-desc" class="text-gray-400 text-sm leading-relaxed mb-6">Transforming wedding halls and engagement venues with luxurious staging, floral decor, ambient lighting, and bespoke seating layouts.</p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-brand-border pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> <span id="srv-2-feat-1">Luxury Hall Decor & Staging</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> <span id="srv-2-feat-2">Ambient Lighting & Seating</span></li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-brand-border hover:border-emerald-500/50 transition-all hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-6"><i class="fa-solid fa-music"></i></div>
+                        <h3 id="srv-3-title" class="text-xl font-bold text-white mb-3">Concerts, Live Music & Pro DJ</h3>
+                        <p id="srv-3-desc" class="text-gray-400 text-sm leading-relaxed mb-6">Complete concert production, professional DJ setups, massive sound systems, LED wall backdrops, and dynamic stage lighting.</p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-brand-border pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> <span id="srv-3-feat-1">Professional DJ & Sound Rigs</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> <span id="srv-3-feat-2">Live Music Stage Production</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE PROJECT BUILDER SECTION -->
+    <section id="configurator" class="py-20 md:py-28 bg-brand-dark relative overflow-hidden border-b border-brand-border/60">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div id="builder-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-semibold uppercase tracking-wider mb-4">
+                    Interactive Project Configurator
+                </div>
+                <h2 id="builder-title" class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Build & Customize Your Project Scope
+                </h2>
+                <p id="builder-subtitle" class="text-gray-400 text-sm sm:text-base">
+                    Select your event type, 3D design preferences, staging requirements, and entertainment style. We'll generate your complete customized brief instantly!
+                </p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-10 border border-brand-border shadow-2xl">
+                <!-- Step 1: Event Type -->
+                <div class="mb-10">
+                    <label id="lbl-step-1" class="block text-sm font-bold text-cyan-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">1</span>
+                        Select Event Type / Occasion
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="builder-event" value="Major Concert / Festival" class="config-radio hidden" checked>
+                            <div class="p-4 rounded-2xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-sm font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-fire text-amber-400 text-lg"></i>
+                                <span id="ev-1">Major Concert / Festival</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="builder-event" value="Grand Wedding Party" class="config-radio hidden">
+                            <div class="p-4 rounded-2xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-sm font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-ring text-amber-400 text-lg"></i>
+                                <span id="ev-2">Grand Wedding Party</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="builder-event" value="Engagement / Katb Kitab" class="config-radio hidden">
+                            <div class="p-4 rounded-2xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-sm font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-heart text-rose-400 text-lg"></i>
+                                <span id="ev-3">Engagement / Katb Kitab</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="builder-event" value="Café / Lounge Acoustic Set" class="config-radio hidden">
+                            <div class="p-4 rounded-2xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-sm font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-music text-cyan-400 text-lg"></i>
+                                <span id="ev-4">Café / Lounge Acoustic Night</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="builder-event" value="Turnkey Exhibition Booth" class="config-radio hidden">
+                            <div class="p-4 rounded-2xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-sm font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-cube text-cyan-400 text-lg"></i>
+                                <span id="ev-5">Turnkey Exhibition Booth</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="builder-event" value="Private Birthday / Party" class="config-radio hidden">
+                            <div class="p-4 rounded-2xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-sm font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-cake-candles text-amber-400 text-lg"></i>
+                                <span id="ev-6">Private Birthday / Celebration</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 2: 3D Design & CAD Engineering -->
+                <div class="mb-10 pt-6 border-t border-brand-border">
+                    <label id="lbl-step-2" class="block text-sm font-bold text-cyan-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">2</span>
+                        3D Architectural Design & CAD Planning
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="builder-design" value="Full 3D Design & Spatial Planning" class="config-radio hidden" checked>
+                            <div class="p-4 rounded-2xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-sm font-medium text-white text-center">
+                                <i class="fa-solid fa-pen-ruler text-cyan-400 text-xl mb-2 block"></i>
+                                <span id="des-1">Full 3D Renders & CAD Plans</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="builder-design" value="Execution Based on Ready Client Design" class="config-radio hidden">
+                            <div class="p-4 rounded-2xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-sm font-medium text-white text-center">
+                                <i class="fa-solid fa-hammer text-amber-400 text-xl mb-2 block"></i>
+                                <span id="des-2">Execution from Client Design</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="builder-design" value="Consultation & Site Inspection First" class="config-radio hidden">
+                            <div class="p-4 rounded-2xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-sm font-medium text-white text-center">
+                                <i class="fa-solid fa-comments text-emerald-400 text-xl mb-2 block"></i>
+                                <span id="des-3">Consultation & Site Inspection</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 3: Staging, Decor & Structural Build -->
+                <div class="mb-10 pt-6 border-t border-brand-border">
+                    <label id="lbl-step-3" class="block text-sm font-bold text-cyan-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">3</span>
+                        Staging, Truss & Decor Requirements (Select all that apply)
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Heavy Steel Truss Stage Construction" class="config-check hidden" checked>
+                            <div class="p-3.5 rounded-xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-xs font-medium text-white flex items-center gap-3">
+                                <i class="fa-solid fa-square-check text-cyan-400 text-base"></i>
+                                <span id="opt-b-1">Heavy Steel Truss & Stage Construction</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Curved & Flat LED Video Wall Backdrops" class="config-check hidden" checked>
+                            <div class="p-3.5 rounded-xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-xs font-medium text-white flex items-center gap-3">
+                                <i class="fa-solid fa-square-check text-cyan-400 text-base"></i>
+                                <span id="opt-b-2">Curved & Flat LED Video Wall Backdrops</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Luxury Hall Decor, Floral & Seating Layouts" class="config-check hidden">
+                            <div class="p-3.5 rounded-xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-xs font-medium text-white flex items-center gap-3">
+                                <i class="fa-solid fa-square-check text-cyan-400 text-base"></i>
+                                <span id="opt-b-3">Luxury Hall Decor, Floral & Seating Layouts</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Custom Acrylic, Woodwork & Lightboxes Fabrication" class="config-check hidden">
+                            <div class="p-3.5 rounded-xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-xs font-medium text-white flex items-center gap-3">
+                                <i class="fa-solid fa-square-check text-cyan-400 text-base"></i>
+                                <span id="opt-b-4">Custom Acrylic, Woodwork & Lightboxes</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 4: Audio, DJ & Live Music Entertainment -->
+                <div class="mb-10 pt-6 border-t border-brand-border">
+                    <label id="lbl-step-4" class="block text-sm font-bold text-cyan-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">4</span>
+                        Audio Systems, DJ & Live Music Bands (Select all that apply)
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Professional DJ Setup & Controller Rigs" class="config-check hidden" checked>
+                            <div class="p-3.5 rounded-xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-xs font-medium text-white flex items-center gap-3">
+                                <i class="fa-solid fa-square-check text-cyan-400 text-base"></i>
+                                <span id="opt-s-1">Professional DJ Setup & Controller Rigs</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Live Music Band / Acoustic Musicians (Guitar, Drums, Vocals)" class="config-check hidden">
+                            <div class="p-3.5 rounded-xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-xs font-medium text-white flex items-center gap-3">
+                                <i class="fa-solid fa-square-check text-cyan-400 text-base"></i>
+                                <span id="opt-s-2">Live Music Band / Acoustic Musicians</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Massive Line Array PA Sound Systems" class="config-check hidden" checked>
+                            <div class="p-3.5 rounded-xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-xs font-medium text-white flex items-center gap-3">
+                                <i class="fa-solid fa-square-check text-cyan-400 text-base"></i>
+                                <span id="opt-s-3">Massive Line Array PA Sound Systems</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Dynamic Stage Lighting (Moving Heads, Spotlights & FX)" class="config-check hidden" checked>
+                            <div class="p-3.5 rounded-xl border border-brand-border bg-brand-card/70 hover:border-cyan-400 transition-all text-xs font-medium text-white flex items-center gap-3">
+                                <i class="fa-solid fa-square-check text-cyan-400 text-base"></i>
+                                <span id="opt-s-4">Dynamic Stage Lighting (Moving Heads & FX)</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 5: Location, Date & Instant Send -->
+                <div class="pt-6 border-t border-brand-border space-y-4">
+                    <label id="lbl-step-5" class="block text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">5</span>
+                        Location, Date & Contact Info
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label id="lbl-b-name" class="block text-xs font-semibold text-gray-300 mb-1.5">Your Name / Company</label>
+                            <input type="text" id="builder-name" placeholder="e.g. Ahmed Mohamed" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                        </div>
+                        <div>
+                            <label id="lbl-b-loc" class="block text-xs font-semibold text-gray-300 mb-1.5">Country / City (KSA or Egypt)</label>
+                            <input type="text" id="builder-location" placeholder="e.g. Riyadh, Jeddah, Cairo..." class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                        </div>
+                        <div>
+                            <label id="lbl-b-date" class="block text-xs font-semibold text-gray-300 mb-1.5">Expected Event Date</label>
+                            <input type="date" id="builder-date" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                        <button onclick="sendBuilderWhatsApp()" class="flex-1 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span id="btn-send-wa">Send Customized Order via WhatsApp</span>
+                        </button>
+                        <button onclick="sendBuilderEmail()" class="flex-1 py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-envelope text-lg"></i>
+                            <span id="btn-send-mail">Send Customized Order via Email</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="py-16 sm:py-20 md:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div id="port-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold uppercase tracking-wider mb-4">
+                        Our Portfolio & Execution Workflow
+                    </div>
+                    <h2 id="port-title" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                        From 3D CAD Blueprints to On-Site Stage Construction & Concerts
+                    </h2>
+                </div>
+                <div id="port-subtitle" class="mt-4 md:mt-0 text-sm text-gray-400">
+                    Real technical view: 3D architectural renders, CAD layouts, concert productions, and stage builds.
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Faculty of Agriculture Concert Card -->
+                <div onclick="openAgriModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-emerald-400/50 transition-all">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://img.youtube.com/vi/-32SF4lNwhc/hqdefault.jpg" alt="Faculty of Agriculture Concert" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
+                        <span id="agri-badge-txt" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 backdrop-blur-md">Faculty Concert</span>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
+                            <span id="agri-hover-txt" class="px-4 py-2 rounded-xl bg-emerald-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
+                                <i class="fa-solid fa-play"></i> Watch Concert Video
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 id="agri-card-title" class="text-lg font-bold text-white mb-2">Faculty of Agriculture Celebration</h3>
+                        <p id="agri-card-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Complete stage setup, sound engineering, and live concert production for Faculty of Agriculture party.</p>
+                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
+                            <span id="agri-card-tag">Concerts & Parties</span>
+                            <span id="agri-open-txt" class="text-emerald-400"><i class="fa-solid fa-circle-play"></i> Watch Video</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Café Live Event Gallery Card -->
+                <div onclick="openCafeModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-cyan-400/50 transition-all">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/d/17dghmUOgXBVRuuxOKRPT4LjKh1CiaRxm" alt="Café Music Event" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
+                        <span id="cafe-badge-txt" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 backdrop-blur-md">Café Event Gallery</span>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
+                            <span id="cafe-hover-txt" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
+                                <i class="fa-solid fa-images"></i> View Café Gallery
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 id="cafe-card-title" class="text-lg font-bold text-white mb-2">Exclusive Café Music & Acoustic Nights</h3>
+                        <p id="cafe-card-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Click to explore our complete photo and video gallery of live café DJ sets and acoustic setups.</p>
+                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
+                            <span id="cafe-card-tag">Café & Lounge Collection</span>
+                            <span id="cafe-open-txt" class="text-cyan-400"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Gallery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Concert Stage 3D Architectural Blueprint -->
+                <div onclick="openBlueprintModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-cyan-400/50 transition-all">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/d/1SOt89cTO5MGszMLFDgctgiqxjUZIue7Q" alt="3D Architectural Stage Render" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
+                        <span id="proj-1-tag" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 backdrop-blur-md">3D Concept & Render</span>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
+                            <span id="proj-1-hover" class="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i> View Blueprint Gallery
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 id="proj-1-title" class="text-lg font-bold text-white mb-2">Concert Stage 3D Blueprint</h3>
+                        <p id="proj-1-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Initial 3D visual projection featuring curved LED backdrops, truss hanging points, and precise spatial CAD layout.</p>
+                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
+                            <span id="proj-1-type">Phase 1: Design & 3D</span>
+                            <span id="proj-1-status" class="text-cyan-400"><i class="fa-solid fa-cube"></i> Approved 3D</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage Rigging & Construction Phase -->
+                <div onclick="openRiggingModal()" class="glass-card rounded-2xl overflow-hidden border border-brand-border group cursor-pointer hover:border-amber-400/50 transition-all">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/d/1YqvJ93kBM1ojMh3K2q_8UgHpu3XeJhPG" alt="Stage Rigging and Construction" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
+                        <span id="proj-2-tag" class="absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 backdrop-blur-md">On-Site Execution</span>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
+                            <span id="proj-2-hover" class="px-4 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
+                                <i class="fa-solid fa-images"></i> View Rigging Gallery
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 id="proj-2-title" class="text-lg font-bold text-white mb-2">Stage Rigging & Construction</h3>
+                        <p id="proj-2-desc" class="text-xs text-gray-400 leading-relaxed mb-4">Live on-site execution showing heavy-duty steel truss assembly, lighting grid suspension, and safety checks.</p>
+                        <div class="text-[11px] font-semibold text-gray-300 flex items-center justify-between border-t border-brand-border pt-3">
+                            <span id="proj-2-type">Phase 2: Rigging</span>
+                            <span id="proj-2-status" class="text-amber-400"><i class="fa-solid fa-hammer"></i> Open Gallery</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty of Agriculture Concert Modal -->
+    <div id="agri-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card w-full max-w-4xl p-6 sm:p-8 rounded-3xl border border-brand-border relative my-8">
+            <button onclick="closeAgriModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl z-10 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mb-6">
+                <span id="agri-modal-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">Live Concert Video</span>
+                <h2 id="agri-modal-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Faculty of Agriculture Concert & Celebration</h2>
+                <p id="agri-modal-desc" class="text-xs text-gray-400 mt-1">Watch our official live concert coverage and stage execution for Faculty of Agriculture celebration.</p>
+            </div>
+            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-brand-border bg-black shadow-2xl relative">
+                <iframe src="https://www.youtube.com/embed/-32SF4lNwhc?autoplay=1&mute=0&controls=1" title="Faculty of Agriculture Concert Video" class="w-full h-full absolute inset-0 border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stage Rigging & Construction Gallery Modal -->
+    <div id="rigging-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card w-full max-w-4xl p-6 sm:p-8 rounded-3xl border border-brand-border relative my-8">
+            <button onclick="closeRiggingModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl z-10 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mb-6">
+                <span id="rig-modal-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30">Live Execution Gallery</span>
+                <h2 id="rig-modal-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Stage Rigging & Construction Phase</h2>
+                <p id="rig-modal-desc" class="text-xs text-gray-400 mt-1">Real on-site execution showing heavy-duty steel truss assembly, lighting grid suspension, and structural safety checks. Click any photo to zoom in.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[60vh] overflow-y-auto pr-2">
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1YqvJ93kBM1ojMh3K2q_8UgHpu3XeJhPG')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1YqvJ93kBM1ojMh3K2q_8UgHpu3XeJhPG" alt="Rigging Photo 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="rig-img-1">Heavy-Duty Truss Assembly A</span><i class="fa-solid fa-expand text-amber-400"></i></div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1Y-hA8jK_Xxcbm8NwB_YCcumq6HQjgbcU')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1Y-hA8jK_Xxcbm8NwB_YCcumq6HQjgbcU" alt="Rigging Photo 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="rig-img-2">Lighting Grid Suspension B</span><i class="fa-solid fa-expand text-amber-400"></i></div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1Q_U5A_KRK0r5L3Pp9JUejXPDSZnyfwyt')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1Q_U5A_KRK0r5L3Pp9JUejXPDSZnyfwyt" alt="Rigging Photo 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="rig-img-3">Structural Safety Check C</span><i class="fa-solid fa-expand text-amber-400"></i></div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1SN_2Q1l7gA0QtEnOG2DqcxqBngwsOvV8')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1SN_2Q1l7gA0QtEnOG2DqcxqBngwsOvV8" alt="Rigging Photo 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="rig-img-4">On-Site Rigging Execution D</span><i class="fa-solid fa-expand text-amber-400"></i></div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1ai9H0tW3bx80usqej-crPGA1s6TpkXqE')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1ai9H0tW3bx80usqej-crPGA1s6TpkXqE" alt="Rigging Photo 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="rig-img-5">Final Stage Construction E</span><i class="fa-solid fa-expand text-amber-400"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Blueprint Gallery Modal -->
+    <div id="blueprint-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card w-full max-w-4xl p-6 sm:p-8 rounded-3xl border border-brand-border relative my-8">
+            <button onclick="closeBlueprintModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl z-10 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mb-6">
+                <span id="bp-modal-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">Architectural Gallery & Video</span>
+                <h2 id="bp-modal-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Concert Stage 3D Blueprints & Construction</h2>
+                <p id="bp-modal-desc" class="text-xs text-gray-400 mt-1">Click on any image to open it in full-screen view, or watch the stage setup video below.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[60vh] overflow-y-auto pr-2">
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1SOt89cTO5MGszMLFDgctgiqxjUZIue7Q')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1SOt89cTO5MGszMLFDgctgiqxjUZIue7Q" alt="Blueprint 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="bp-img-1">3D Projection & Truss Layout</span><i class="fa-solid fa-expand text-cyan-400"></i></div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1zfXgQdMKNJtNYT2THC2U-8KzbEQKuDcc')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1zfXgQdMKNJtNYT2THC2U-8KzbEQKuDcc" alt="Blueprint 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="bp-img-2">Curved LED Backdrop Design</span><i class="fa-solid fa-expand text-cyan-400"></i></div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1F-UAMUFCcQyT-XXKN_24qBb4l1THSUim')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1F-UAMUFCcQyT-XXKN_24qBb4l1THSUim" alt="Blueprint 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="bp-img-3">Spatial CAD Structural Plan</span><i class="fa-solid fa-expand text-cyan-400"></i></div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1GJIo2dv28T3-eB8jQEZR4w_7Sktp3pjH')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1GJIo2dv28T3-eB8jQEZR4w_7Sktp3pjH" alt="New CAD Project View 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="bp-img-4">Rubix Stage 3D Rendering View A</span><i class="fa-solid fa-expand text-cyan-400"></i></div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/137BbCqNBB5YIgzUT2EJKTP38UE44vZNt')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/137BbCqNBB5YIgzUT2EJKTP38UE44vZNt" alt="New CAD Project View 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="bp-img-5">Rubix Stage 3D Rendering View B</span><i class="fa-solid fa-expand text-cyan-400"></i></div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1wnXtCTwzit9qUZGI2eC3OBpeqdIcVz0x')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1wnXtCTwzit9qUZGI2eC3OBpeqdIcVz0x" alt="New CAD Project View 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="bp-img-6">Rubix Stage 3D Rendering View C</span><i class="fa-solid fa-expand text-cyan-400"></i></div>
+                </div>
+                <div class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark flex flex-col justify-between shadow-lg sm:col-span-2 lg:col-span-3">
+                    <div class="w-full aspect-video overflow-hidden bg-black relative flex items-center justify-center">
+                        <iframe src="https://www.youtube.com/embed/84RNKdYX7BQ?autoplay=0&mute=1&controls=1&loop=1" title="Stage Construction Video" class="w-full h-full absolute inset-0 border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 text-xs font-medium text-cyan-300 bg-brand-card/50 flex items-center justify-between">
+                        <span id="bp-vid-title"><i class="fa-solid fa-video text-amber-400 mr-1.5"></i> Sarah & Omar Stage Setup & Construction Video</span>
+                        <span id="bp-vid-tag" class="text-gray-400">Live Execution</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-xl hidden items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-brand-card border border-brand-border text-white text-2xl flex items-center justify-center hover:bg-red-600 transition-all z-50 cursor-pointer shadow-2xl"><i class="fa-solid fa-xmark"></i></button>
+        <div class="w-full h-full flex items-center justify-center relative p-4">
+            <img id="lightbox-img" src="" alt="Zoomed Image" class="max-w-[90vw] max-h-[88vh] object-contain rounded-2xl border border-brand-border shadow-2xl">
+        </div>
+    </div>
+
+    <!-- Café & Lounge Gallery Modal -->
+    <div id="cafe-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card w-full max-w-4xl p-6 sm:p-8 rounded-3xl border border-brand-border relative my-8">
+            <button onclick="closeCafeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl z-10 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mb-6">
+                <span id="cafe-modal-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30">Live Gallery</span>
+                <h2 id="cafe-modal-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Café & Lounge Events Gallery</h2>
+                <p id="cafe-modal-desc" class="text-xs text-gray-400 mt-1">Explore photos and video clips from our executed café music nights and DJ rigs. Click on any photo to zoom in.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[60vh] overflow-y-auto pr-2">
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/17dghmUOgXBVRuuxOKRPT4LjKh1CiaRxm')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/17dghmUOgXBVRuuxOKRPT4LjKh1CiaRxm" alt="Café Event Image 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="cafe-img-1">Café Live Acoustic Session</span><i class="fa-solid fa-expand text-amber-400"></i></div>
+                </div>
+                <div class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark flex flex-col justify-between shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black relative flex items-center justify-center">
+                        <iframe src="https://www.youtube.com/embed/-eBfXjcCZD4?autoplay=0&mute=1&controls=1&loop=1" title="Café Short Video" class="w-full h-full absolute inset-0 border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div id="cafe-vid-txt" class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50">Café Live Performance Video</div>
+                </div>
+                <div onclick="openLightbox('https://lh3.googleusercontent.com/d/1hcdi5bx73JoFJPpmqeCxapLeWZP3ONYG')" class="rounded-xl overflow-hidden border border-brand-border bg-brand-dark cursor-pointer group shadow-lg">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-black flex items-center justify-center"><img src="https://lh3.googleusercontent.com/d/1hcdi5bx73JoFJPpmqeCxapLeWZP3ONYG" alt="Café Event Image 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="p-3 text-xs font-medium text-gray-300 bg-brand-card/50 flex items-center justify-between"><span id="cafe-img-2">Café Lighting & Vibe Setup</span><i class="fa-solid fa-expand text-amber-400"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Turnkey Process Workflow -->
+    <section id="process" class="py-16 sm:py-20 md:py-28 bg-brand-card/50 border-y border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div id="proc-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-semibold uppercase tracking-wider mb-4">
+                    How We Deliver
+                </div>
+                <h2 id="proc-title" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Our 4-Step Turnkey Process
+                </h2>
+                <p id="proc-subtitle" class="text-gray-400 text-sm sm:text-base">
+                    From initial design and engineering to live show execution.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-6 rounded-2xl border border-brand-border relative">
+                    <div class="text-4xl font-black text-cyan-500/30 mb-4">01</div>
+                    <h3 id="step-1-title" class="text-lg font-bold text-white mb-2">3D Concept & Planning</h3>
+                    <p id="step-1-desc" class="text-xs text-gray-400 leading-relaxed">Designing spatial layouts, stage blueprints, or booth 3D renders according to your vision.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-brand-border relative">
+                    <div class="text-4xl font-black text-amber-500/30 mb-4">02</div>
+                    <h3 id="step-2-title" class="text-lg font-bold text-white mb-2">CAD Specs & Audio Rigs</h3>
+                    <p id="step-2-desc" class="text-xs text-gray-400 leading-relaxed">Drafting technical shop drawings, selecting high-grade materials, and audio-visual setups.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-brand-border relative">
+                    <div class="text-4xl font-black text-emerald-500/30 mb-4">03</div>
+                    <h3 id="step-3-title" class="text-lg font-bold text-white mb-2">Precision Fabrication</h3>
+                    <p id="step-3-desc" class="text-xs text-gray-400 leading-relaxed">Building custom structures, testing DJ sound equipment, and pre-assembling components.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-brand-border relative">
+                    <div class="text-4xl font-black text-cyan-500/30 mb-4">04</div>
+                    <h3 id="step-4-title" class="text-lg font-bold text-white mb-2">Live Show Operation & Execution</h3>
+                    <p id="step-4-desc" class="text-xs text-gray-400 leading-relaxed">Managing live events, operating in-house DJ & performance acts, direct sound engineering, and full show control from start to finish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 sm:py-20 md:py-28 bg-brand-card/30 border-t border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <div id="contact-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold uppercase tracking-wider mb-4">
+                        Get In Touch
+                    </div>
+                    <h2 id="contact-title" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+                        Let's Discuss Your Next Event or Exhibition
+                    </h2>
+                    <p id="contact-desc" class="text-gray-300 text-sm sm:text-base leading-relaxed mb-8">
+                        Planning an exhibition stand, a wedding ceremony, a café live set, or a concert in KSA or Egypt? Contact us directly.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 glass-card p-4 rounded-xl border border-brand-border">
+                            <div class="w-12 h-12 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div id="lbl-wa-contact" class="text-xs text-gray-400">WhatsApp Direct Contact</div>
+                                <a href="https://wa.me/9660564532758" target="_blank" class="text-base sm:text-lg font-bold text-white hover:text-emerald-400 transition-colors flex items-center">+966 056 453 2758</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 glass-card p-4 rounded-xl border border-brand-border">
+                            <div class="w-12 h-12 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div id="lbl-email-text" class="text-xs text-gray-400">Official Email</div>
+                                <a href="mailto:rubixexhibitions@gmail.com" class="text-sm sm:text-base font-bold text-white hover:text-cyan-400 transition-colors">rubixexhibitions@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mailto Direct Inquiry Form -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-brand-border">
+                    <h3 id="form-title" class="text-xl font-bold text-white mb-6">Send Inquiry via Email</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label id="lbl-name" class="block text-xs font-semibold text-gray-300 mb-2">Your Name / Company</label>
+                            <input type="text" id="in-name" placeholder="e.g. Ahmed Mohamed" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                        </div>
+                        <div>
+                            <label id="lbl-client-email" class="block text-xs font-semibold text-gray-300 mb-2">Your Email Address</label>
+                            <input type="email" id="in-email" placeholder="name@example.com" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                        </div>
+                        <div>
+                            <label id="lbl-service-type" class="block text-xs font-semibold text-gray-300 mb-2">Service Required</label>
+                            <select id="in-service" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                                <option id="opt-1" value="Exhibition Booth & Turnkey Stand">Exhibition Booth & Turnkey Stand</option>
+                                <option id="opt-2" value="Wedding / Engagement Party Setup">Wedding / Engagement Party Setup</option>
+                                <option id="opt-3" value="Concert, Live Music & Pro DJ">Concert, Live Music & Pro DJ</option>
+                                <option id="opt-4" value="Café / Lounge Event Setup">Café / Lounge Event Setup</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label id="lbl-details" class="block text-xs font-semibold text-gray-300 mb-2">Project Details & Location</label>
+                            <textarea id="in-details" rows="3" placeholder="Briefly describe dimensions, venue, or date..." class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400"></textarea>
+                        </div>
+                        <button onclick="sendMailtoInquiry()" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-bold text-sm transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane text-base"></i>
+                            <span id="btn-send-email">Send Email Inquiry</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-brand-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <img src="https://lh3.googleusercontent.com/d/1KKjnIEhcRHiq9WQJb7NB4PQ0ciFVx-AR" alt="Rubix Exhibitions Logo" class="h-12 w-auto object-contain mx-auto md:mx-0">
+                <p id="footer-copy" class="text-xs text-gray-400 mt-2">© 2026 Rubix Exhibitions & Events. All rights reserved. KSA & Egypt.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Section -->
+    <script>
+        let currentLang = 'en';
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                menu.classList.add('hidden');
+                icon.className = 'fa-solid fa-bars';
+            }
+        }
+
+        document.querySelectorAll('input[type="checkbox"]').forEach(chk => {
+            chk.addEventListener('change', function() {
+                if(this.checked) {
+                    this.nextElementSibling.style.borderColor = '#06B6D4';
+                    this.nextElementSibling.style.backgroundColor = 'rgba(6, 182, 212, 0.1)';
+                    this.nextElementSibling.querySelector('i').className = 'fa-solid fa-square-check text-cyan-400 text-base';
+                } else {
+                    this.nextElementSibling.style.borderColor = '#1E293B';
+                    this.nextElementSibling.style.backgroundColor = 'rgba(15, 23, 42, 0.7)';
+                    this.nextElementSibling.querySelector('i').className = 'fa-regular fa-square text-gray-500 text-base';
+                }
+            });
+            if(chk.checked) {
+                chk.nextElementSibling.style.borderColor = '#06B6D4';
+                chk.nextElementSibling.style.backgroundColor = 'rgba(6, 182, 212, 0.1)';
+            }
+        });
+
+        document.querySelectorAll('input[type="radio"]').forEach(rad => {
+            rad.addEventListener('change', function() {
+                const groupName = this.name;
+                document.querySelectorAll(`input[name="${groupName}"]`).forEach(r => {
+                    r.nextElementSibling.style.borderColor = '#1E293B';
+                    r.nextElementSibling.style.backgroundColor = 'rgba(15, 23, 42, 0.7)';
+                });
+                if(this.checked) {
+                    this.nextElementSibling.style.borderColor = '#06B6D4';
+                    this.nextElementSibling.style.backgroundColor = 'rgba(6, 182, 212, 0.15)';
+                }
+            });
+            if(rad.checked) {
+                rad.nextElementSibling.style.borderColor = '#06B6D4';
+                rad.nextElementSibling.style.backgroundColor = 'rgba(6, 182, 212, 0.15)';
+            }
+        });
+
+        function sendBuilderWhatsApp() {
+            const name = document.getElementById('builder-name').value || 'Not specified';
+            const location = document.getElementById('builder-location').value || 'Not specified';
+            const date = document.getElementById('builder-date').value || 'Not specified';
+            
+            const eventType = document.querySelector('input[name="builder-event"]:checked')?.value || 'Not specified';
+            const designType = document.querySelector('input[name="builder-design"]:checked')?.value || 'Not specified';
+            
+            const checkboxes = document.querySelectorAll('.config-check:checked');
+            let selectedOptions = [];
+            checkboxes.forEach(cb => selectedOptions.push(cb.value));
+
+            const text = encodeURIComponent(
+                `*New Project Configurator Order (Rubix Exhibitions)*\n\n` +
+                `👤 *Name / Company:* ${name}\n` +
+                `📍 *Location:* ${location}\n` +
+                `📅 *Expected Date:* ${date}\n\n` +
+                `🎯 *Event Type:* ${eventType}\n` +
+                `📐 *3D Design Scope:* ${designType}\n` +
+                `🛠️ *Selected Features & Equipment:* \n` + (selectedOptions.length > 0 ? selectedOptions.map(o => `- ${o}`).join('\n') : 'None') + `\n\n` +
+                `Please review and confirm my project quote!`
+            );
+
+            window.open(`https://wa.me/9660564532758?text=${text}`, '_blank');
+        }
+
+        function sendBuilderEmail() {
+            const name = document.getElementById('builder-name').value || 'Not specified';
+            const location = document.getElementById('builder-location').value || 'Not specified';
+            const date = document.getElementById('builder-date').value || 'Not specified';
+            
+            const eventType = document.querySelector('input[name="builder-event"]:checked')?.value || 'Not specified';
+            const designType = document.querySelector('input[name="builder-design"]:checked')?.value || 'Not specified';
+            
+            const checkboxes = document.querySelectorAll('.config-check:checked');
+            let selectedOptions = [];
+            checkboxes.forEach(cb => selectedOptions.push(cb.value));
+
+            const subject = encodeURIComponent(`Custom Project Builder Order: ${eventType} from ${name}`);
+            const body = encodeURIComponent(
+                `Hello Rubix Exhibitions,\n\n` +
+                `I have built and configured my project on your website:\n\n` +
+                `Client Name / Company: ${name}\n` +
+                `Location: ${location}\n` +
+                `Expected Date: ${date}\n\n` +
+                `Event Type: ${eventType}\n` +
+                `3D Design Scope: ${designType}\n` +
+                `Selected Features & Equipment:\n` + (selectedOptions.length > 0 ? selectedOptions.map(o => `- ${o}`).join('\n') : 'None') + `\n\n` +
+                `Looking forward to your reply.`
+            );
+
+            window.location.href = `mailto:rubixexhibitions@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        // Functions for Agriculture Concert Modal
+        function openAgriModal() {
+            const modal = document.getElementById('agri-modal');
+            modal.classList.remove('hidden'); modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeAgriModal() {
+            const modal = document.getElementById('agri-modal');
+            modal.classList.remove('flex'); modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openBlueprintModal() {
+            const modal = document.getElementById('blueprint-modal');
+            modal.classList.remove('hidden'); modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeBlueprintModal() {
+            const modal = document.getElementById('blueprint-modal');
+            modal.classList.remove('flex'); modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        function openRiggingModal() {
+            const modal = document.getElementById('rigging-modal');
+            modal.classList.remove('hidden'); modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeRiggingModal() {
+            const modal = document.getElementById('rigging-modal');
+            modal.classList.remove('flex'); modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox-modal');
+            document.getElementById('lightbox-img').src = imgSrc;
+            lightbox.classList.remove('hidden'); lightbox.classList.add('flex');
+        }
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox-modal');
+            lightbox.classList.remove('flex'); lightbox.classList.add('hidden');
+        }
+        function launchStageFireworks() {
+            const container = document.getElementById('fireworks-container');
+            if (!container) return;
+            const colors = ['#06B6D4', '#F59E0B', '#38BDF8', '#10B981', '#EF4444'];
+            for (let i = 0; i < 4; i++) {
+                setTimeout(() => {
+                    const startX = Math.random() * container.offsetWidth;
+                    const startY = container.offsetHeight * (0.3 + Math.random() * 0.4);
+                    for (let j = 0; j < 30; j++) {
+                        const spark = document.createElement('div');
+                        spark.className = 'firework-spark';
+                        spark.style.left = `${startX}px`; spark.style.top = `${startY}px`;
+                        spark.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        const angle = Math.random() * Math.PI * 2;
+                        const distance = 60 + Math.random() * 120;
+                        spark.style.setProperty('--tx', `${Math.cos(angle) * distance}px`);
+                        spark.style.setProperty('--ty', `${Math.sin(angle) * distance}px`);
+                        container.appendChild(spark);
+                        setTimeout(() => spark.remove(), 1500);
+                    }
+                }, i * 400);
+            }
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            launchStageFireworks();
+            setInterval(launchStageFireworks, 6000);
+        });
+        function openCafeModal() {
+            const modal = document.getElementById('cafe-modal');
+            modal.classList.remove('hidden'); modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeCafeModal() {
+            const modal = document.getElementById('cafe-modal');
+            modal.classList.remove('flex'); modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        function sendMailtoInquiry() {
+            const name = document.getElementById('in-name').value || 'Not specified';
+            const email = document.getElementById('in-email').value || 'Not specified';
+            const service = document.getElementById('in-service').value;
+            const details = document.getElementById('in-details').value || 'No details provided';
+            const subject = encodeURIComponent(`New Project Inquiry: ${service} from ${name}`);
+            const body = encodeURIComponent(`Hello Rubix Exhibitions,\n\nYou have a new inquiry from your website:\n\nName / Company: ${name}\nClient Email: ${email}\nService Required: ${service}\nProject Details & Location:\n${details}\n\nBest regards.`);
+            window.location.href = `mailto:rubixexhibitions@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        function toggleLanguage() {
+            const htmlEl = document.documentElement;
+            const langText = document.getElementById('lang-text');
+
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                htmlEl.setAttribute('dir', 'rtl');
+                htmlEl.setAttribute('lang', 'ar');
+                langText.innerText = 'English';
+
+                // Navbar
+                document.getElementById('nav-about').innerText = 'من نحن';
+                document.getElementById('nav-services').innerText = 'خدماتنا';
+                document.getElementById('nav-portfolio').innerText = 'أعمالنا';
+                document.getElementById('nav-builder').innerHTML = '<i class="fa-solid fa-sliders text-xs"></i> مصمم المشاريع';
+                document.getElementById('nav-process').innerText = 'خطوات العمل';
+                document.getElementById('nav-contact').innerText = 'تواصل معنا';
+                document.getElementById('nav-cta-text').innerText = 'راسلنا بريدياً';
+                
+                document.getElementById('m-nav-about').innerText = 'من نحن';
+                document.getElementById('m-nav-services').innerText = 'خدماتنا';
+                document.getElementById('m-nav-portfolio').innerText = 'أعمالنا';
+                document.getElementById('m-nav-builder').innerText = 'مصمم المشاريع';
+                document.getElementById('m-nav-process').innerText = 'خطوات العمل';
+                document.getElementById('m-nav-contact').innerText = 'تواصل معنا';
+                document.getElementById('m-nav-cta-text').innerText = 'راسلنا بريدياً';
+
+                // Hero
+                document.getElementById('hero-badge').innerText = 'المعارض، حفلات الزفاف، الحفلات الموسيقية والإنتاج المتكامل';
+                document.getElementById('hero-title').innerHTML = 'من التصميم ثلاثي الأبعاد إلى التنفيذ <span class="gradient-text">& إنتاج المسرح الحي</span>';
+                document.getElementById('hero-desc').innerText = 'أجنحة المعارض المتكاملة، حفلات الزفاف الكبرى، الحفلات الموسيقية وتجهيزات الصوت والدي جي الاحترافية في السعودية ومصر.';
+                document.getElementById('hero-cta-text').innerText = 'صمم مشروعك الآن';
+                document.getElementById('hero-secondary-text').innerText = 'استكشف أعمالنا';
+
+                // About
+                document.getElementById('about-badge').innerText = 'هندسة المساحات والفعاليات الإبداعية';
+                document.getElementById('about-title').innerText = 'حلول متكاملة: تصميم، بناء وهندسة صوتية';
+                document.getElementById('about-p1').innerHTML = 'في <strong class="text-white">Rubix Exhibitions</strong>، يبدأ عملنا من التصميم ثلاثي الأبعاد والإبداعي وصولاً للتنفيذ الكامل في الموقع. نحن لا نبني أجنحة معارض فحسب، بل نصنع فعاليات شركات لا تُنسى، وحفلات زفاف فاخرة، وحفلات موسيقية حية.';
+                document.getElementById('about-p2').innerText = 'مجهزون بأحدث أنظمة الدي جي الاحترافية، الأنظمة الصوتية عالية الأداء، تجهيزات الإضاءة المسرحية، وأعمال النجارة الدقيقة لنضمن دقة التنفيذ من الفكرة حتى وقت العرض.';
+                document.getElementById('stat-1-title').innerText = 'تنفيذ متكامل';
+                document.getElementById('stat-2-title').innerText = 'صوت وإضاءة';
+                document.getElementById('stat-3-val').innerText = 'حي';
+                document.getElementById('stat-3-title').innerText = 'حفلات ومناسبات';
+                document.getElementById('img-overlay-left').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i> تخطيط هندسي ثلاثي الأبعاد دقيق';
+                document.getElementById('img-overlay-right').innerText = 'السعودية ومصر';
+
+                // Founders
+                document.getElementById('founder-badge-txt').innerText = 'القيادة والرؤية الإبداعية';
+                document.getElementById('founder-role-badge').innerText = 'المؤسس ورئيس الإبداع والتصميم';
+                document.getElementById('founder-p1').innerHTML = '"القيادة الحقيقية في الفعاليات الكبرى ليست مجرد إدارة؛ بل هي السيطرة الكاملة على الأجواء من الفكرة إلى التنفيذ. في <strong class="text-white">Rubix Exhibitions</strong>، نحن لا ننظم الفعاليات فحسب، بل نصنع تجارب غامرة تأسر الحضور وتُعيد صياغة معايير الصناعة.';
+                document.getElementById('founder-p2').innerText = 'من إنتاج الحفلات الضخمة وهندسة المسرح الكبرى إلى التنفيذ المتكامل الخالي من العيوب، نقود بدقة مطلقة لضمان أن كل علامة تجارية نتعامل معها تقف في قمة التأثير والتميز."';
+                document.getElementById('founder-cta-btn').innerHTML = '<i class="fa-solid fa-paper-plane"></i> تواصل معنا';
+
+                document.getElementById('ali-badge-txt').innerText = 'العمليات الميدانية والتنفيذ';
+                document.getElementById('ali-role-badge').innerText = 'رئيس العمليات الميدانية والإنتاج - مصر';
+                document.getElementById('ali-p1').innerHTML = '"التميز على الورق لا يساوي شيئاً بدون تنفيذ حاسم على الأرض. يقود علي بسام عملياتنا في مصر ليضمن تحويل كل تصميم هندسي وبناء مسرح ومتطلبات لوجستية إلى واقع خالي من العيوب وبدقة متناهية."';
+                document.getElementById('ali-cta-btn').innerHTML = '<i class="fa-solid fa-paper-plane"></i> تواصل معنا';
+
+                // Services
+                document.getElementById('services-badge').innerText = 'خدمات شاملة';
+                document.getElementById('services-title').innerText = 'من الفكرة إلى الحفلات والفعاليات الكبرى';
+                document.getElementById('services-subtitle').innerText = 'تصميم شامل، تصنيع، وإنتاج سمعي بصري مخصص للمعارض، حفلات الزفاف، والمناسبات الموسيقية.';
+                document.getElementById('srv-1-title').innerText = 'أجنحة المعارض والتصميم ثلاثي الأبعاد';
+                document.getElementById('srv-1-desc').innerText = 'منصات ثلاثية الأبعاد مخصصة، مخططات تنفيذية هندسية، وأجنحة معارض متكاملة مصممة لزيادة تأثير علامتك التجارية.';
+                document.getElementById('srv-1-feat-1').innerText = 'تصاميم 3D ومخططات تنفيذية';
+                document.getElementById('srv-1-feat-2').innerText = 'تصنيع وتنفيذ شامل للمنصات';
+                document.getElementById('srv-2-title').innerText = 'حفلات الزفاف والمناسبات الخاصة';
+                document.getElementById('srv-2-desc').innerText = 'تحويل قاعات الأفراح والمناسبات بديكورات فاخرة، مسارح مجهزة، إضاءة محيطية، وتنسيق جلسات مخصص.';
+                document.getElementById('srv-2-feat-1').innerText = 'ديكورات ومسارح قاعات فاخرة';
+                document.getElementById('srv-2-feat-2').innerText = 'إضاءة محيطية وتنسيق جلسات';
+                document.getElementById('srv-3-title').innerText = 'الحفلات الموسيقية والدي جي الاحترافي';
+                document.getElementById('srv-3-desc').innerText = 'إنتاج الحفلات بالكامل، تجهيزات دي جي احترافية، أنظمة صوت ضخمة، شاشات LED وخلفيات مسرحية ديناميكية.';
+                document.getElementById('srv-3-feat-1').innerText = 'أنظمة دي جي وصوت احترافية';
+                document.getElementById('srv-3-feat-2').innerText = 'إنتاج وإخراج المسارح الحية';
+
+                // Project Builder Translation
+                document.getElementById('builder-badge').innerText = 'مصمم المشاريع التفاعلي';
+                document.getElementById('builder-title').innerText = 'صمم وخصص نطاق مشروعك بالكامل';
+                document.getElementById('builder-subtitle').innerText = 'اختر نوع فعاليتك، متطلبات التصميم ثلاثي الأبعاد، ديكورات المسرح، والترفيه المناسب، وسنقوم بتجهيز ملخص طلبك فوراً!';
+                document.getElementById('lbl-step-1').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">1</span> اختر نوع الفعالية أو المناسبة';
+                document.getElementById('ev-1').innerText = 'حفلة موسيقية كبرى / مهرجان';
+                document.getElementById('ev-2').innerText = 'حفل زفاف فاخر';
+                document.getElementById('ev-3').innerText = 'حفل خطوبة / كتب كتاب';
+                document.getElementById('ev-4').innerText = 'سهرة كافيه / لاونج أكوستيك';
+                document.getElementById('ev-5').innerText = 'جناح معرض تجاري متكامل';
+                document.getElementById('ev-6').innerText = 'عيد ميلاد / احتفال خاص';
+
+                document.getElementById('lbl-step-2').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">2</span> التصميم المعماري ثلاثي الأبعاد والتخطيط';
+                document.getElementById('des-1').innerText = 'تصميم 3D ومخططات CAD كاملة';
+                document.getElementById('des-2').innerText = 'تنفيذ مباشر بتصميم العميل الجاهز';
+                document.getElementById('des-3').innerText = 'استشارة ومعاينة ميدانية أولاً';
+
+                document.getElementById('lbl-step-3').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">3</span> متطلبات المسرح، التراس والديكور (اختر ما يناسبك)';
+                document.getElementById('opt-b-1').innerText = 'بناء مسرح مع هيكل تراس حديد ثقيل';
+                document.getElementById('opt-b-2').innerText = 'خلفيات شاشات LED فيديو منحنية وثابتة';
+                document.getElementById('opt-b-3').innerText = 'ديكورات قاعات فاخرة، زهور وتنسيق جلسات';
+                document.getElementById('opt-b-4').innerText = 'تصنيع خاص أخشاب، أكريليك ولايت بوكس';
+
+                document.getElementById('lbl-step-4').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">4</span> الأنظمة الصوتية، الدي جي والباند الحي (اختر ما يناسبك)';
+                document.getElementById('opt-s-1').innerText = 'تجهيز دي جي احترافي ومكسرات تحكم';
+                document.getElementById('opt-s-2').innerText = 'باند موسيقي حي / عازفين (جيتار، درامز، فويس)';
+                document.getElementById('opt-s-3').innerText = 'أنظمة صوت خطية ضخمة (Line Array PA)';
+                document.getElementById('opt-s-4').innerText = 'إضاءة مسرحية ديناميكية ومؤثرات حية';
+
+                document.getElementById('lbl-step-5').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">5</span> الموقع، التاريخ ومعلومات التواصل';
+                document.getElementById('lbl-b-name').innerText = 'اسمك / اسم الشركة';
+                document.getElementById('lbl-b-loc').innerText = 'الدولة / المدينة (السعودية أو مصر)';
+                document.getElementById('lbl-b-date').innerText = 'تاريخ الفعالية المتوقع';
+                document.getElementById('btn-send-wa').innerText = 'إرسال الطلب المخصص عبر الواتساب';
+                document.getElementById('btn-send-mail').innerText = 'إرسال الطلب المخصص عبر البريد';
+
+                // Portfolio
+                document.getElementById('port-badge').innerText = 'معرض أعمالنا ودورة العمل';
+                document.getElementById('port-title').innerText = 'من مخططات CAD ثلاثية الأبعاد إلى بناء المسارح والحفلات الكبرى';
+                document.getElementById('port-subtitle').innerText = 'رؤية تقنية حقيقية: تصاميم معمارية ثلاثية الأبعاد، إنتاج الحفلات، وبناء المسارح.';
+                
+                // Agriculture Concert Translation
+                document.getElementById('agri-badge-txt').innerText = 'حفلات الكليات';
+                document.getElementById('agri-hover-txt').innerHTML = '<i class="fa-solid fa-play"></i> مشاهدة فيديو الحفل';
+                document.getElementById('agri-card-title').innerText = 'حفلة كلية الزراعة';
+                document.getElementById('agri-card-desc').innerText = 'تجهيز المسرح بالكامل، الهندسة الصوتية، والإنتاج الحي لحفلة كلية الزراعة.';
+                document.getElementById('agri-card-tag').innerText = 'الحفلات والمهرجانات';
+                document.getElementById('agri-open-txt').innerHTML = '<i class="fa-solid fa-circle-play"></i> مشاهدة الفيديو';
+                document.getElementById('agri-modal-badge').innerText = 'فيديو الحفل الحي';
+                document.getElementById('agri-modal-title').innerText = 'حفلة كلية الزراعة';
+                document.getElementById('agri-modal-desc').innerText = 'شاهد التغطية الحية وتنفيذ المسرح والصوت لحفلة كلية الزراعة.';
+
+                document.getElementById('cafe-badge-txt').innerText = 'معرض فعاليات الكافيه';
+                document.getElementById('cafe-hover-txt').innerHTML = '<i class="fa-solid fa-images"></i> عرض معرض الكافيه';
+                document.getElementById('cafe-card-title').innerText = 'حفلات كافيهات وسهرات أكوستيك حصرية';
+                document.getElementById('cafe-card-desc').innerText = 'اضغط لاستكشاف المعرض الكامل للصور وفيديوهات العروض الحية للدي جي والأكوستيك.';
+                document.getElementById('cafe-card-tag').innerText = 'مجموعات الكافيهات واللاونج';
+                document.getElementById('cafe-open-txt').innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> فتح المعرض';
+                document.getElementById('proj-1-tag').innerText = 'فكرة وتصميم ثلاثي الأبعاد';
+                document.getElementById('proj-1-hover').innerHTML = '<i class="fa-solid fa-magnifying-glass-plus"></i> عرض المعرض';
+                document.getElementById('proj-1-title').innerText = 'مخطط 3D معماري لمسرح حفلات';
+                document.getElementById('proj-1-desc').innerText = 'تصميم 3D أولي يشمل خلفيات LED منحنية، نقاط تعليق التراس، وتوزيع مساحي دقيق.';
+                document.getElementById('proj-1-type').innerText = 'المرحلة 1: التصميم والنمذجة';
+                document.getElementById('proj-1-status').innerHTML = '<i class="fa-solid fa-cube"></i> تصميم معتمد';
+                document.getElementById('proj-2-tag').innerText = 'التنفيذ في الموقع';
+                document.getElementById('proj-2-hover').innerHTML = '<i class="fa-solid fa-images"></i> عرض معرض التركيب';
+                document.getElementById('proj-2-title').innerText = 'مرحلة التركيب وهندسة المسرح';
+                document.getElementById('proj-2-desc').innerText = 'تنفيذ حي في الموقع يوضح تجميع تراس الحديد الثقيل، تعليق شبكة الإضاءة، واختبارات السلامة.';
+                document.getElementById('proj-2-type').innerText = 'المرحلة 2: البناء والتركيب';
+                document.getElementById('proj-2-status').innerHTML = '<i class="fa-solid fa-hammer"></i> فتح المعرض';
+
+                // Rigging Modal
+                document.getElementById('rig-modal-badge').innerText = 'معرض التنفيذ الميداني';
+                document.getElementById('rig-modal-title').innerText = 'مرحلة التركيب وهندسة المسرح';
+                document.getElementById('rig-modal-desc').innerText = 'تنفيذ حي في الموقع يوضح تجميع تراس الحديد الثقيل، تعليق شبكة الإضاءة، واختبارات السلامة. اضغط على أي صورة لتكبيرها.';
+                document.getElementById('rig-img-1').innerText = 'تجميع تراس الحديد الثقيل (أ)';
+                document.getElementById('rig-img-2').innerText = 'تعليق شبكة الإضاءة (ب)';
+                document.getElementById('rig-img-3').innerText = 'فحص السلامة الإنشائية (ج)';
+                document.getElementById('rig-img-4').innerText = 'التنفيذ الميداني للتعليق (د)';
+                document.getElementById('rig-img-5').innerText = 'الإنشاء النهائي للمسرح (هـ)';
+
+                // Blueprint Modal
+                document.getElementById('bp-modal-badge').innerText = 'معرض التصاميم الهندسية والفيديو';
+                document.getElementById('bp-modal-title').innerText = 'مخططات المسرح ثلاثية الأبعاد وعمليات الإنشاء';
+                document.getElementById('bp-modal-desc').innerText = 'اضغط على أي صورة لفتحها بعرض الشاشة الكامل، أو شاهد فيديو تجهيز المسرح بالأسفل.';
+                document.getElementById('bp-img-1').innerText = 'الإسقاط ثلاثي الأبعاد وتخطيط التراس';
+                document.getElementById('bp-img-2').innerText = 'تصميم خلفيات LED المنحنية';
+                document.getElementById('bp-img-3').innerText = 'المخطط الإنشائي الكاد المساحي';
+                document.getElementById('bp-img-4').innerText = 'رؤية تصيير روبيكس 3D (أ)';
+                document.getElementById('bp-img-5').innerText = 'رؤية تصيير روبيكس 3D (ب)';
+                document.getElementById('bp-img-6').innerText = 'رؤية تصيير روبيكس 3D (ج)';
+                document.getElementById('bp-vid-title').innerHTML = '<i class="fa-solid fa-video text-amber-400 mr-1.5"></i> فيديو تجهيز وبناء مسرح سارة وعمر';
+                document.getElementById('bp-vid-tag').innerText = 'التنفيذ الحي';
+
+                // Cafe Modal
+                document.getElementById('cafe-modal-badge').innerText = 'معرض فعاليات الكافيه';
+                document.getElementById('cafe-modal-title').innerText = 'معرض سهرات الكافيه واللاونج';
+                document.getElementById('cafe-modal-desc').innerText = 'استكشف الصور ومقاطع الفيديو من سهرات الكافيه الموسيقية وتجهيزات الدي جي. اضغط على أي صورة للتكبير.';
+                document.getElementById('cafe-img-1').innerText = 'جلسة كافيه أكوستيك حية';
+                document.getElementById('cafe-vid-txt').innerText = 'فيديو الأداء الحي في الكافيه';
+                document.getElementById('cafe-img-2').innerText = 'تجهيز إضاءة وأجواء الكافيه';
+
+                // Process
+                document.getElementById('proc-badge').innerText = 'كيف نقوم بالتنفيذ';
+                document.getElementById('proc-title').innerText = 'خطوات عملنا المتكاملة';
+                document.getElementById('proc-subtitle').innerText = 'من التصميم والهندسة الأولية وحتى إخراج الحفل وتشغيل الفعاليات.';
+                document.getElementById('step-1-title').innerText = 'التخطيط والفكرة ثلاثية الأبعاد';
+                document.getElementById('step-1-desc').innerText = 'تصميم التوزيع المساحي، مخططات المسرح، أو المنصات ثلاثية الأبعاد وفقاً لرؤيتك.';
+                document.getElementById('step-2-title').innerText = 'المواصفات وتجهيز الصوت';
+                document.getElementById('step-2-desc').innerText = 'إعداد المخططات التنفيذية، اختيار الخامات عالية الجودة، وتجهيز المعدات الصوتية والضوئية.';
+                document.getElementById('step-3-title').innerText = 'التصنيع والتجميع الدقيق';
+                document.getElementById('step-3-desc').innerText = 'بناء الهياكل المخصصة، اختبار معدات الصوت والدي جي، والتجميع الأولي للمكونات.';
+                document.getElementById('step-4-title').innerText = 'إدارة وتشغيل الحفل المباشر (دي جي وفعاليات)';
+                document.getElementById('step-4-desc').innerText = 'إدارة الحفل حياً، تشغيل أنظمة الدي جي والفقرات الفنية، هندسة الصوت المباشر، والتحكم الكامل بالعرض من البداية للنهاية.';
+
+                // Contact & Form & Footer
+                document.getElementById('contact-badge').innerText = 'تواصل معنا';
+                document.getElementById('contact-title').innerText = 'دعنا نناقش مشروعك أو معرضك القادم';
+                document.getElementById('contact-desc').innerText = 'تخطط لجناح معرض، حفل زفاف، سهرة كافيه، أو حفلة موسيقية في السعودية أو مصر؟ تواصل معنا مباشرة.';
+                document.getElementById('lbl-wa-contact').innerText = 'مراسلة واتساب مباشرة';
+                document.getElementById('lbl-email-text').innerText = 'البريد الإلكتروني الرسمي';
+                document.getElementById('form-title').innerText = 'إرسال استفسار عبر البريد الإلكتروني';
+                document.getElementById('lbl-name').innerText = 'الاسم / الشركة';
+                document.getElementById('lbl-client-email').innerText = 'البريد الإلكتروني للعميل';
+                document.getElementById('lbl-service-type').innerText = 'الخدمة المطلوبة';
+                document.getElementById('lbl-details').innerText = 'تفاصيل المشروع والموقع';
+                document.getElementById('btn-send-email').innerText = 'إرسال الاستفسار عبر البريد';
+                document.getElementById('opt-1').innerText = 'جناح معرض وتجهيز منصة متكاملة';
+                document.getElementById('opt-2').innerText = 'تجهيز حفل زفاف / خطوبة';
+                document.getElementById('opt-3').innerText = 'حفلة موسيقية ودي جي احترافي';
+                document.getElementById('opt-4').innerText = 'تجهيز فعاليات كافيه / لاونج';
+                document.getElementById('footer-copy').innerText = '© 2026 روبيكس للمعارض والفعاليات. جميع الحقوق محفوظة. السعودية ومصر.';
+
+            } else {
+                currentLang = 'en';
+                htmlEl.setAttribute('dir', 'ltr');
+                htmlEl.setAttribute('lang', 'en');
+                langText.innerText = 'العربية';
+
+                // Navbar
+                document.getElementById('nav-about').innerText = 'About Us';
+                document.getElementById('nav-services').innerText = 'Services';
+                document.getElementById('nav-portfolio').innerText = 'Portfolio';
+                document.getElementById('nav-builder').innerHTML = '<i class="fa-solid fa-sliders text-xs"></i> Project Builder';
+                document.getElementById('nav-process').innerText = 'Process';
+                document.getElementById('nav-contact').innerText = 'Contact';
+                document.getElementById('nav-cta-text').innerText = 'Email Us';
+
+                document.getElementById('m-nav-about').innerText = 'About Us';
+                document.getElementById('m-nav-services').innerText = 'Services';
+                document.getElementById('m-nav-portfolio').innerText = 'Portfolio';
+                document.getElementById('m-nav-builder').innerText = 'Project Builder';
+                document.getElementById('m-nav-process').innerText = 'Process';
+                document.getElementById('m-nav-contact').innerText = 'Contact';
+                document.getElementById('m-nav-cta-text').innerText = 'Email Us';
+
+                // Hero
+                document.getElementById('hero-badge').innerText = 'Exhibitions, Weddings, Concerts & Turnkey Production';
+                document.getElementById('hero-title').innerHTML = 'From 3D Design to Execution <span class="gradient-text">& Live Stage Production</span>';
+                document.getElementById('hero-desc').innerText = 'Turnkey Exhibition Stands, Grand Weddings, Concerts & Live Music Production equipped with professional DJ & sound systems across KSA & Egypt.';
+                document.getElementById('hero-cta-text').innerText = 'Build Your Project Now';
+                document.getElementById('hero-secondary-text').innerText = 'Explore Our Portfolio';
+
+                // About
+                document.getElementById('about-badge').innerText = 'Creative Spatial & Event Engineering';
+                document.getElementById('about-title').innerText = 'Complete Turnkey Solutions: Design, Build & Sound';
+                document.getElementById('about-p1').innerHTML = 'At <strong class="text-white">Rubix Exhibitions</strong>, our workflow starts from creative 3D design and engineering up to full on-site implementation. We don\'t just build exhibition booths; we curate unforgettable corporate events, luxury weddings, and live music concerts.';
+                document.getElementById('about-p2').innerText = 'Equipped with in-house professional DJ setups, high-end acoustic systems, stage lighting rigs, and meticulous carpentry, we guarantee precise execution from concept to final showtime.';
+                document.getElementById('stat-1-title').innerText = 'Turnkey Execution';
+                document.getElementById('stat-2-title').innerText = 'Sound & Lighting';
+                document.getElementById('stat-3-val').innerText = 'Live';
+                document.getElementById('stat-3-title').innerText = 'Concerts & Weddings';
+                document.getElementById('img-overlay-left').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i> Precise 3D Architectural CAD Planning';
+                document.getElementById('img-overlay-right').innerText = 'KSA & Egypt';
+
+                // Founders
+                document.getElementById('founder-badge-txt').innerText = 'Leadership & Creative Vision';
+                document.getElementById('founder-role-badge').innerText = 'Founder & Creative Lead';
+                document.getElementById('founder-p1').innerHTML = '"True leadership in major events isn’t just about management; it’s about commanding the entire atmosphere from concept to execution. At <strong class="text-white">Rubix Exhibitions</strong>, we don\'t just stage events—we orchestrate immersive experiences that captivate audiences and redefine industry standards.';
+                document.getElementById('founder-p2').innerText = 'From massive concert productions and grand stage engineering to flawless turnkey realization, we lead with absolute precision to ensure every brand we touch stands at the pinnacle of impact and excellence."';
+                document.getElementById('founder-cta-btn').innerHTML = '<i class="fa-solid fa-paper-plane"></i> Get In Touch';
+
+                document.getElementById('ali-badge-txt').innerText = 'Field Operations & Execution';
+                document.getElementById('ali-role-badge').innerText = 'Head of Field Operations & Production - Egypt';
+                document.getElementById('ali-p1').innerHTML = '"Excellence on paper means nothing without ruthless execution on the ground. Leading our operations across Egypt, Ali Bassam ensures that every structural design, stage build, and logistical requirement is translated into flawless reality with absolute precision."';
+                document.getElementById('ali-cta-btn').innerHTML = '<i class="fa-solid fa-paper-plane"></i> Get In Touch';
+
+                // Services
+                document.getElementById('services-badge').innerText = 'Full Spectrum Services';
+                document.getElementById('services-title').innerText = 'From Concept to Concerts & Events';
+                document.getElementById('services-subtitle').innerText = 'Comprehensive design, fabrication, and live audio-visual production tailored for exhibitions, weddings, and music events.';
+                document.getElementById('srv-1-title').innerText = 'Exhibition Stands & 3D Design';
+                document.getElementById('srv-1-desc').innerText = 'Bespoke 3D booths, CAD technical plans, and turnkey exhibition stands built to maximize brand impact on the showroom floor.';
+                document.getElementById('srv-1-feat-1').innerText = '3D Renders & Shop Drawings';
+                document.getElementById('srv-1-feat-2').innerText = 'Turnkey Booth Fabrication';
+                document.getElementById('srv-2-title').innerText = 'Weddings & Engagement Events';
+                document.getElementById('srv-2-desc').innerText = 'Transforming wedding halls and engagement venues with luxurious staging, floral decor, ambient lighting, and bespoke seating layouts.';
+                document.getElementById('srv-2-feat-1').innerText = 'Luxury Hall Decor & Staging';
+                document.getElementById('srv-2-feat-2').innerText = 'Ambient Lighting & Seating';
+                document.getElementById('srv-3-title').innerText = 'Concerts, Live Music & Pro DJ';
+                document.getElementById('srv-3-desc').innerText = 'Complete concert production, professional DJ setups, massive sound systems, LED wall backdrops, and dynamic stage lighting.';
+                document.getElementById('srv-3-feat-1').innerText = 'Professional DJ & Sound Rigs';
+                document.getElementById('srv-3-feat-2').innerText = 'Live Music Stage Production';
+
+                // Project Builder Translation
+                document.getElementById('builder-badge').innerText = 'Interactive Project Configurator';
+                document.getElementById('builder-title').innerText = 'Build & Customize Your Project Scope';
+                document.getElementById('builder-subtitle').innerText = 'Select your event type, 3D design preferences, staging requirements, and entertainment style. We\'ll generate your complete customized brief instantly!';
+                document.getElementById('lbl-step-1').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">1</span> Select Event Type / Occasion';
+                document.getElementById('ev-1').innerText = 'Major Concert / Festival';
+                document.getElementById('ev-2').innerText = 'Grand Wedding Party';
+                document.getElementById('ev-3').innerText = 'Engagement / Katb Kitab';
+                document.getElementById('ev-4').innerText = 'Café / Lounge Acoustic Night';
+                document.getElementById('ev-5').innerText = 'Turnkey Exhibition Booth';
+                document.getElementById('ev-6').innerText = 'Private Birthday / Celebration';
+
+                document.getElementById('lbl-step-2').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">2</span> 3D Architectural Design & CAD Planning';
+                document.getElementById('des-1').innerText = 'Full 3D Renders & CAD Plans';
+                document.getElementById('des-2').innerText = 'Execution from Client Design';
+                document.getElementById('des-3').innerText = 'Consultation & Site Inspection';
+
+                document.getElementById('lbl-step-3').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">3</span> Staging, Truss & Decor Requirements (Select all that apply)';
+                document.getElementById('opt-b-1').innerText = 'Heavy Steel Truss & Stage Construction';
+                document.getElementById('opt-b-2').innerText = 'Curved & Flat LED Video Wall Backdrops';
+                document.getElementById('opt-b-3').innerText = 'Luxury Hall Decor, Floral & Seating Layouts';
+                document.getElementById('opt-b-4').innerText = 'Custom Acrylic, Woodwork & Lightboxes';
+
+                document.getElementById('lbl-step-4').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">4</span> Audio Systems, DJ & Live Music Bands (Select all that apply)';
+                document.getElementById('opt-s-1').innerText = 'Professional DJ Setup & Controller Rigs';
+                document.getElementById('opt-s-2').innerText = 'Live Music Band / Acoustic Musicians';
+                document.getElementById('opt-s-3').innerText = 'Massive Line Array PA Sound Systems';
+                document.getElementById('opt-s-4').innerText = 'Dynamic Stage Lighting (Moving Heads & FX)';
+
+                document.getElementById('lbl-step-5').innerHTML = '<span class="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center text-xs font-black">5</span> Location, Date & Contact Info';
+                document.getElementById('lbl-b-name').innerText = 'Your Name / Company';
+                document.getElementById('lbl-b-loc').innerText = 'Country / City (KSA or Egypt)';
+                document.getElementById('lbl-b-date').innerText = 'Expected Event Date';
+                document.getElementById('btn-send-wa').innerText = 'Send Customized Order via WhatsApp';
+                document.getElementById('btn-send-mail').innerText = 'Send Customized Order via Email';
+
+                // Portfolio
+                document.getElementById('port-badge').innerText = 'Our Portfolio & Execution Workflow';
+                document.getElementById('port-title').innerText = 'From 3D CAD Blueprints to On-Site Stage Construction & Concerts';
+                document.getElementById('port-subtitle').innerText = 'Real technical view: 3D architectural renders, CAD layouts, concert productions, and stage builds.';
+                
+                // Agriculture Concert Translation
+                document.getElementById('agri-badge-txt').innerText = 'Faculty Concert';
+                document.getElementById('agri-hover-txt').innerHTML = '<i class="fa-solid fa-play"></i> Watch Concert Video';
+                document.getElementById('agri-card-title').innerText = 'Faculty of Agriculture Celebration';
+                document.getElementById('agri-card-desc').innerText = 'Complete stage setup, sound engineering, and live concert production for Faculty of Agriculture party.';
+                document.getElementById('agri-card-tag').innerText = 'Concerts & Parties';
+                document.getElementById('agri-open-txt').innerHTML = '<i class="fa-solid fa-circle-play"></i> Watch Video';
+                document.getElementById('agri-modal-badge').innerText = 'Live Concert Video';
+                document.getElementById('agri-modal-title').innerText = 'Faculty of Agriculture Concert & Celebration';
+                document.getElementById('agri-modal-desc').innerText = 'Watch our official live concert coverage and stage execution for Faculty of Agriculture celebration.';
+
+                document.getElementById('cafe-badge-txt').innerText = 'Café Event Gallery';
+                document.getElementById('cafe-hover-txt').innerHTML = '<i class="fa-solid fa-images"></i> View Café Gallery';
+                document.getElementById('cafe-card-title').innerText = 'Exclusive Café Music & Acoustic Nights';
+                document.getElementById('cafe-card-desc').innerText = 'Click to explore our complete photo and video gallery of live café DJ sets and acoustic setups.';
+                document.getElementById('cafe-card-tag').innerText = 'Café & Lounge Collection';
+                document.getElementById('cafe-open-txt').innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> Open Gallery';
+                document.getElementById('proj-1-tag').innerText = '3D Concept & Render';
+                document.getElementById('proj-1-hover').innerHTML = '<i class="fa-solid fa-magnifying-glass-plus"></i> View Blueprint Gallery';
+                document.getElementById('proj-1-title').innerText = 'Concert Stage 3D Blueprint';
+                document.getElementById('proj-1-desc').innerText = 'Initial 3D visual projection featuring curved LED backdrops, truss hanging points, and precise spatial CAD layout.';
+                document.getElementById('proj-1-type').innerText = 'Phase 1: Design & 3D';
+                document.getElementById('proj-1-status').innerHTML = '<i class="fa-solid fa-cube"></i> Approved 3D';
+                document.getElementById('proj-2-tag').innerText = 'On-Site Execution';
+                document.getElementById('proj-2-hover').innerHTML = '<i class="fa-solid fa-images"></i> View Rigging Gallery';
+                document.getElementById('proj-2-title').innerText = 'Stage Rigging & Construction';
+                document.getElementById('proj-2-desc').innerText = 'Live on-site execution showing heavy-duty steel truss assembly, lighting grid suspension, and safety checks.';
+                document.getElementById('proj-2-type').innerText = 'Phase 2: Rigging';
+                document.getElementById('proj-2-status').innerHTML = '<i class="fa-solid fa-hammer"></i> Open Gallery';
+
+                // Rigging Modal
+                document.getElementById('rig-modal-badge').innerText = 'Live Execution Gallery';
+                document.getElementById('rig-modal-title').innerText = 'Stage Rigging & Construction Phase';
+                document.getElementById('rig-modal-desc').innerText = 'Real on-site execution showing heavy-duty steel truss assembly, lighting grid suspension, and structural safety checks. Click any photo to zoom in.';
+                document.getElementById('rig-img-1').innerText = 'Heavy-Duty Truss Assembly A';
+                document.getElementById('rig-img-2').innerText = 'Lighting Grid Suspension B';
+                document.getElementById('rig-img-3').innerText = 'Structural Safety Check C';
+                document.getElementById('rig-img-4').innerText = 'On-Site Rigging Execution D';
+                document.getElementById('rig-img-5').innerText = 'Final Stage Construction E';
+
+                // Blueprint Modal
+                document.getElementById('bp-modal-badge').innerText = 'Architectural Gallery & Video';
+                document.getElementById('bp-modal-title').innerText = 'Concert Stage 3D Blueprints & Construction';
+                document.getElementById('bp-modal-desc').innerText = 'Click on any image to open it in full-screen view, or watch the stage setup video below.';
+                document.getElementById('bp-img-1').innerText = '3D Projection & Truss Layout';
+                document.getElementById('bp-img-2').innerText = 'Curved LED Backdrop Design';
+                document.getElementById('bp-img-3').innerText = 'Spatial CAD Structural Plan';
+                document.getElementById('bp-img-4').innerText = 'Rubix Stage 3D Rendering View A';
+                document.getElementById('bp-img-5').innerText = 'Rubix Stage 3D Rendering View B';
+                document.getElementById('bp-img-6').innerText = 'Rubix Stage 3D Rendering View C';
+                document.getElementById('bp-vid-title').innerHTML = '<i class="fa-solid fa-video text-amber-400 mr-1.5"></i> Sarah & Omar Stage Setup & Construction Video';
+                document.getElementById('bp-vid-tag').innerText = 'Live Execution';
+
+                // Cafe Modal
+                document.getElementById('cafe-modal-badge').innerText = 'Live Gallery';
+                document.getElementById('cafe-modal-title').innerText = 'Café & Lounge Events Gallery';
+                document.getElementById('cafe-modal-desc').innerText = 'Explore photos and video clips from our executed café music nights and DJ rigs. Click on any photo to zoom in.';
+                document.getElementById('cafe-img-1').innerText = 'Café Live Acoustic Session';
+                document.getElementById('cafe-vid-txt').innerText = 'Café Live Performance Video';
+                document.getElementById('cafe-img-2').innerText = 'Café Lighting & Vibe Setup';
+
+                // Process
+                document.getElementById('proc-badge').innerText = 'How We Deliver';
+                document.getElementById('proc-title').innerText = 'Our 4-Step Turnkey Process';
+                document.getElementById('proc-subtitle').innerText = 'From initial design and engineering to live show execution.';
+                document.getElementById('step-1-title').innerText = '3D Concept & Planning';
+                document.getElementById('step-1-desc').innerText = 'Designing spatial layouts, stage blueprints, or booth 3D renders according to your vision.';
+                document.getElementById('step-2-title').innerText = 'CAD Specs & Audio Rigs';
+                document.getElementById('step-2-desc').innerText = 'Drafting technical shop drawings, selecting high-grade materials, and audio-visual setups.';
+                document.getElementById('step-3-title').innerText = 'Precision Fabrication';
+                document.getElementById('step-3-desc').innerText = 'Building custom structures, testing DJ sound equipment, and pre-assembling components.';
+                document.getElementById('step-4-title').innerText = 'Live Show Operation & Execution';
+                document.getElementById('step-4-desc').innerText = 'Managing live events, operating in-house DJ & performance acts, direct sound engineering, and full show control from start to finish.';
+
+                // Contact & Form & Footer
+                document.getElementById('contact-badge').innerText = 'Get In Touch';
+                document.getElementById('contact-title').innerText = "Let's Discuss Your Next Event or Exhibition";
+                document.getElementById('contact-desc').innerText = 'Planning an exhibition stand, a wedding ceremony, a café live set, or a concert in KSA or Egypt? Contact us directly.';
+                document.getElementById('lbl-wa-contact').innerText = 'WhatsApp Direct Contact';
+                document.getElementById('lbl-email-text').innerText = 'Official Email';
+                document.getElementById('form-title').innerText = 'Send Inquiry via Email';
+                document.getElementById('lbl-name').innerText = 'Your Name / Company';
+                document.getElementById('lbl-client-email').innerText = 'Your Email Address';
+                document.getElementById('lbl-service-type').innerText = 'Service Required';
+                document.getElementById('lbl-details').innerText = 'Project Details & Location';
+                document.getElementById('btn-send-email').innerText = 'Send Email Inquiry';
+                document.getElementById('opt-1').innerText = 'Exhibition Booth & Turnkey Stand';
+                document.getElementById('opt-2').innerText = 'Wedding / Engagement Party Setup';
+                document.getElementById('opt-3').innerText = 'Concert, Live Music & Pro DJ';
+                document.getElementById('opt-4').innerText = 'Café / Lounge Event Setup';
+                document.getElementById('footer-copy').innerText = '© 2026 Rubix Exhibitions & Events. All rights reserved. KSA & Egypt.';
+            }
+        }
+    </script>
+</body>
+</html>
